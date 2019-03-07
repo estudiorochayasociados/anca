@@ -159,7 +159,7 @@ class Productos
         $productos = $this->con->sqlReturn($sql);
         $row = mysqli_fetch_assoc($productos);
         $img = $this->imagenes->list(array("cod = '" . $this->cod . "'"));
-        $cat = $this->categorias->view_row(array("cod = '" . $this->categoria . "'"));
+        $cat = $this->categorias->view_row(array("cod = '" . $row['categoria'] . "'"));
         $row_ = array("data" => $row, "categorias" => $cat, "imagenes" => $img);
         return $row_;
     }

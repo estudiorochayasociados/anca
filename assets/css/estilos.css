@@ -1,0 +1,15 @@
+.search-products{
+    width: 100% !important;
+}
+.non-stock {
+    color: #666666;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.non-stock i {
+    font-size: 16px;
+    margin-right: 5px;
+    color: red;
+}

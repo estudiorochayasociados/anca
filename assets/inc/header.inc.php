@@ -24,6 +24,7 @@
 <link rel="stylesheet" href="<?=URL?>/assets/css/default.css">
 <!-- Main css -->
 <link rel="stylesheet" href="<?=URL?>/assets/css/style.css">
+<link rel="stylesheet" href="<?=URL?>/assets/css/estilos.css">
 <!-- Responsive css -->
 <link rel="stylesheet" href="<?=URL?>/assets/css/responsive.css">
 

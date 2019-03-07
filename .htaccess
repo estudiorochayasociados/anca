@@ -6,6 +6,8 @@ RewriteCond %{SCRIPT_FILENAME} !-f
 RewriteRule ^(.*)$ $1.php
 
 RewriteRule ^c/(.*)/(.*)$ ./contenidos.php?id=$2
+RewriteRule ^producto/(.*)/(.*)$ ./producto.php?cod=$2
 
 SetOutputFilter DEFLATE
+
 

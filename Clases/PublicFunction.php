@@ -160,37 +160,34 @@ class PublicFunction
     }
 
 
-
-    function curl($method, $url, $data){
+    function curl($method, $url, $data)
+    {
         $curl = curl_init();
 
-        switch ($method){
+        switch ($method) {
             case "POST":
                 curl_setopt($curl, CURLOPT_POST, 1);
-                if ($data)
-                    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+                if ($data) curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
                 break;
             case "PUT":
                 curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PUT");
-                if ($data)
-                    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+                if ($data) curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
                 break;
             default:
-                if ($data)
-                    $url = sprintf("%s?%s", $url, http_build_query($data));
+                if ($data) $url = sprintf("%s?%s", $url, http_build_query($data));
         }
 
         // OPTIONS:
         curl_setopt($curl, CURLOPT_URL, $url);
-        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
-            'Content-Type: application/json',
-        ));
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/json',));
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
 
         // EXECUTE:
         $result = curl_exec($curl);
-        if(!$result){die("Connection Failure");}
+        if (!$result) {
+            die("Connection Failure");
+        }
         curl_close($curl);
         return $result;
     }
@@ -198,7 +195,7 @@ class PublicFunction
 
     public function localidades($palabra)
     {
-        $con = new Conexion(); 
+        $con = new Conexion();
         $sql = "SELECT  distinct `_provincias`.`nombre`,`_localidades`.`nombre` FROM  `_localidades` , `_provincias` WHERE  `_localidades`.`provincia_id` =  `_provincias`.`id` AND `_provincias`.`nombre`  LIKE '%$palabra%' AND `_localidades`.`nombre` != '' ORDER BY `_localidades`.`nombre`";
         $notas = $con->sqlReturn($sql);
         while ($row = mysqli_fetch_assoc($notas)) {
@@ -235,5 +232,17 @@ class PublicFunction
         $query = !empty($query) ? '?' . http_build_query($query) : '';
 
         return $parsedUrl['scheme'] . '://' . $parsedUrl['host'] . $path . $query;
+    }
+
+    public function variables_get_input($hidden)
+    {
+        foreach ($_GET as $key => $val) {
+            if ($key == "pagina") {
+            } else {
+                if ($key != $hidden) {
+                    echo "<input type='hidden' name='" . $key . "' value='" . $val . "' />";
+                }
+            }
+        }
     }
 }
