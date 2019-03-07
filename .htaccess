@@ -1,0 +1,11 @@
+Options +FollowSymLinks
+RewriteEngine on
+#RewriteBase /
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteRule ^(.*)$ $1.php
+
+RewriteRule ^c/(.*)/(.*)$ ./contenidos.php?id=$2
+
+SetOutputFilter DEFLATE
+
