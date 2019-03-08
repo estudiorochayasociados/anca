@@ -157,3 +157,26 @@
 <script src="<?=URL?>/assets/js/plugins.js"></script>
 <!-- Main activaion js -->
 <script src="<?=URL?>/assets/js/main.js"></script>
+<script>
+    $("#provincia").change(function () {
+        $("#provincia option:selected").each(function () {
+            elegido = $(this).val();
+            $.ajax({
+                type: "GET",
+                url: "<?=URL ?>/assets/inc/localidades.inc.php",
+                data: "elegido=" + elegido,
+                dataType: "html",
+                success: function (data) {
+                    $('#localidad option').remove();
+                    var substr = data.split(';');
+                    for (var i = 0; i < substr.length; i++) {
+                        var value = substr[i];
+                        $("#localidad").append(
+                            $("<option></option>").attr("value", value).text(value)
+                        );
+                    }
+                }
+            });
+        });
+    })
+</script>

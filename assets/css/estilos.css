@@ -13,3 +13,47 @@
     margin-right: 5px;
     color: red;
 }
+.button-buy{
+    background: #e62e04 none repeat scroll 0 0;
+    border-color: #e62e04;
+    color: #fff;
+    height: 43px;
+    margin-bottom: 0;
+    margin-right: 10px;
+    width: 150px;
+    border: none;
+}
+.boton-envio {
+    background: #333333;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 0px;
+    border: 1px solid #333333;
+@include transition;
+    outline: none !important;
+    box-shadow: none !important;
+    cursor: pointer;
+    white-space: normal !important;
+}
+
+.boton-envio:hover {
+    background: transparent;
+    color: #333333;
+}
+
+@media screen and (max-width: 900px) {
+    .hidden-xs {
+        display: none;
+    }
+}
+@media screen and (min-width: 900px){
+    .visible-xs{
+        display: none;
+    }
+}
+
+.hidden {
+    display: none
+}

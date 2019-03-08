@@ -12,7 +12,7 @@ if (isset($_GET['logout'])) {
 <div class="popup_banner">
     <span class="popup_off_banner">×</span>
     <div class="banner_popup_area">
-        <img src="<?=URL?>/assets/img/banner/pop-banner.jpg" alt="">
+        <img src="<?= URL ?>/assets/img/banner/pop-banner.jpg" alt="">
     </div>
 </div>
 <!-- Banner Popup End -->
@@ -46,19 +46,40 @@ if (isset($_GET['logout'])) {
             <!-- Header Top Start -->
             <div class="header-top">
                 <ul>
-                    <li><a href="#">Free Shipping on order over $99</a></li>
-                    <li><a href="#">Shopping Cart</a></li>
-                    <li><a href="checkout.html">Checkout</a></li>
+                    <li><span><i class="ion-android-call"></i> <?= TELEFONO ?></li>
+                    </span>
+                    <li><span><i class="ion-android-drafts"></i> <?= EMAIL ?></li>
+                    </li>
                 </ul>
                 <ul>
-                    <li><a href="#">My Account<i class="lnr lnr-chevron-down"></i></a>
-                        <!-- Dropdown Start -->
-                        <ul class="ht-dropdown">
-                            <li><a href="login.html">Login</a></li>
-                            <li><a href="register.html">Register</a></li>
-                        </ul>
-                        <!-- Dropdown End -->
-                    </li>
+                    <?php
+                    if (!empty($_SESSION['usuarios'])) {
+                        ?>
+                        <li>
+                            <a href="#">Mi cuenta<i class="lnr lnr-chevron-down"></i></a>
+                            <!-- Dropdown Start -->
+                            <ul class="ht-dropdown">
+                                <li><a href="">Perfil</a></li>
+                                <li><a href="">Pedidos</a></li>
+                                <li><a href="<?=URL?>?logout">Salir</a></li>
+                            </ul>
+                            <!-- Dropdown End -->
+                        </li>
+                        <?php
+                    } else {
+                        ?>
+                        <li>
+                            <a href="#">Cuenta<i class="lnr lnr-chevron-down"></i></a>
+                            <!-- Dropdown Start -->
+                            <ul class="ht-dropdown">
+                                <li><a href="<?= URL ?>/ingreso">Ingresar</a></li>
+                                <li><a href="<?= URL ?>/registro">Registrar</a></li>
+                            </ul>
+                            <!-- Dropdown End -->
+                        </li>
+                        <?php
+                    }
+                    ?>
                 </ul>
             </div>
             <!-- Header Top End -->
@@ -72,7 +93,7 @@ if (isset($_GET['logout'])) {
             <div class="row align-items-center no-gutters">
                 <div class="col-lg-3 col-md-12">
                     <div class="logo mb-all-30">
-                        <a href="index.html"><img src="<?=URL?>/assets/img/logo/logo.png" alt="logo-image"></a>
+                        <a href="index.html"><img src="<?= URL ?>/assets/img/logo/logo.png" alt="logo-image"></a>
                     </div>
                 </div>
                 <!-- Categorie Search Box Start Here -->
@@ -89,59 +110,78 @@ if (isset($_GET['logout'])) {
                 <div class="col-lg-4 col-md-12">
                     <div class="cart-box mt-all-30">
                         <ul class="d-flex justify-content-lg-end justify-content-center align-items-center">
-                            <li><a href="#"><i class="lnr lnr-cart"></i><span class="my-cart"><span class="total-pro">2</span><span>cart</span></span></a>
+                            <li>
+                                <a href="#"><i class="lnr lnr-cart"></i>
+                                    <span class="my-cart">
+                                        <?php if (!empty($_SESSION['carrito'])) {
+                                            echo '<span class="total-pro">' . @count($_SESSION['carrito']) . '</span>';
+                                        } ?>
+                                    </span>
+                                </a>
                                 <ul class="ht-dropdown cart-box-width">
                                     <li>
-                                        <!-- Cart Box Start -->
-                                        <div class="single-cart-box">
-                                            <div class="cart-img">
-                                                <a href="#"><img src="<?=URL?>/assets/img/products/1.jpg" alt="cart-image"></a>
-                                                <span class="pro-quantity">1X</span>
+                                        <?php
+                                        if (!empty($carro)) {
+                                            $precio = 0;
+                                            foreach ($carro as $car) {
+                                                $precio += ($car["precio"] * $car["cantidad"]);
+                                                ?>
+                                                <!-- Cart Box Start -->
+                                                <div class="single-cart-box">
+                                                    <div class="cart-content">
+                                                        <h6><a href=""><?= ucfirst(substr(strip_tags($car['titulo']), 0, 40)); ?> </a></h6>
+                                                        <?php
+                                                        if ($car['precio'] > 0) {
+                                                            ?>
+                                                            <span class="cart-price">$<?= $car['precio'] ?></span>
+                                                            <?php
+                                                        } else {
+                                                            if ($car['id'] != 'Metodo-Pago') {
+                                                                ?>
+                                                                <span class="cart-price">Gratis!</span>
+                                                                <?php
+                                                            }
+                                                            ?>
+                                                            <?php
+                                                        }
+                                                        if ($car['id'] != 'Metodo-Pago' || $car['id'] != 'Envio-Seleccion') {
+                                                            ?>
+                                                            <span>Cantidad: <?= ucfirst($car['cantidad']) ?></span>
+                                                            <?php
+                                                        }
+                                                        ?>
+                                                    </div>
+                                                </div>
+                                                <!-- Cart Box End -->
+                                                <?php
+                                            }
+                                            ?>
+
+                                            <!-- Cart Footer Inner Start -->
+                                            <div class="cart-footer">
+                                                <ul class="price-content">
+                                                    <li>Total <span>$<?= $precio; ?></span></li>
+                                                </ul>
+                                                <div class="cart-actions text-center">
+                                                    <a class="cart-checkout" href="<?= URL ?>/carrito">Pagar</a>
+                                                </div>
                                             </div>
-                                            <div class="cart-content">
-                                                <h6><a href="product.html">Printed Summer Red </a></h6>
-                                                <span class="cart-price">27.45</span>
-                                                <span>Size: S</span>
-                                                <span>Color: Yellow</span>
+                                            <!-- Cart Footer Inner End -->
+                                            <?php
+                                        } else {
+                                            ?>
+                                            <!-- Cart Box Start -->
+                                            <div class="single-cart-box">
+                                                <div class="cart-content" style="text-align: center;">
+                                                    <h6><a href="">El carrito se encuentra vacío </a></h6>
+                                                </div>
                                             </div>
-                                            <a class="del-icone" href="#"><i class="ion-close"></i></a>
-                                        </div>
-                                        <!-- Cart Box End -->
-                                        <!-- Cart Box Start -->
-                                        <div class="single-cart-box">
-                                            <div class="cart-img">
-                                                <a href="#"><img src="<?=URL?>/assets/img/products/2.jpg" alt="cart-image"></a>
-                                                <span class="pro-quantity">1X</span>
-                                            </div>
-                                            <div class="cart-content">
-                                                <h6><a href="product.html">Printed Round Neck</a></h6>
-                                                <span class="cart-price">45.00</span>
-                                                <span>Size: XL</span>
-                                                <span>Color: Green</span>
-                                            </div>
-                                            <a class="del-icone" href="#"><i class="ion-close"></i></a>
-                                        </div>
-                                        <!-- Cart Box End -->
-                                        <!-- Cart Footer Inner Start -->
-                                        <div class="cart-footer">
-                                            <ul class="price-content">
-                                                <li>Subtotal <span>$57.95</span></li>
-                                                <li>Shipping <span>$7.00</span></li>
-                                                <li>Taxes <span>$0.00</span></li>
-                                                <li>Total <span>$64.95</span></li>
-                                            </ul>
-                                            <div class="cart-actions text-center">
-                                                <a class="cart-checkout" href="checkout.html">Checkout</a>
-                                            </div>
-                                        </div>
-                                        <!-- Cart Footer Inner End -->
+                                            <!-- Cart Box End -->
+                                            <?php
+                                        }
+                                        ?>
                                     </li>
                                 </ul>
-                            </li>
-                            <li><a href="#"><i class="lnr lnr-user"></i><span class="my-cart"><span> <strong>Sign in</strong> Or</span><span> Join My Site</span></span></a>
-
-
-
                             </li>
                         </ul>
                     </div>
@@ -160,11 +200,11 @@ if (isset($_GET['logout'])) {
                 <div class="col-xl-9 col-lg-8 col-md-12 ">
                     <nav class="d-none d-lg-block">
                         <ul class="header-bottom-list d-flex">
-                            <li><a href="<?=URL?>/index">Inicio</a></li>
-                            <li><a href="<?=URL?>/productos">Productos</a></li>
-                            <li><a href="<?=URL?>/blogs">Blog</a></li>
-                            <li><a href="<?=URL?>/contacto">Contacto</a></li>
-                            <li><a href="<?=URL?>/c/empresa">Sobre nosotros</a></li>
+                            <li><a href="<?= URL ?>/index">Inicio</a></li>
+                            <li><a href="<?= URL ?>/productos">Productos</a></li>
+                            <li><a href="<?= URL ?>/blogs">Blog</a></li>
+                            <li><a href="<?= URL ?>/contacto">Contacto</a></li>
+                            <li><a href="<?= URL ?>/c/empresa">Sobre nosotros</a></li>
                         </ul>
                     </nav>
                     <div class="mobile-menu d-block d-lg-none">
@@ -218,9 +258,6 @@ if (isset($_GET['logout'])) {
             <!-- Row End -->
         </div>
         <!-- Container End -->
-    </div>
-    </nav>
-    </div>
     </div>
 </header>
 <!-- Main Header Area End Here -->

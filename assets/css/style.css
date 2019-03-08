@@ -496,11 +496,11 @@ ul {
   vertical-align: top;
 }
 .cart-box-width {
-  background: white none repeat scroll 0 0;
-  box-shadow: 0 3px 9.3px 0.7px rgba(0, 0, 0, 0.15);
-  left: auto;
-  padding: 0;
-  width: 290px;
+    background: white none repeat scroll 0 0;
+    box-shadow: 0 3px 9.3px 0.7px rgba(0, 0, 0, 0.15);
+    left: 100px;
+    padding: 0;
+    width: 290px;
 }
 .single-cart-box {
     margin-bottom: 18px;
@@ -530,10 +530,6 @@ ul {
     display: block;
     font-size: 16px;
     line-height: 20px;
-    overflow: hidden;
-    overflow-wrap: break-word;
-    text-overflow: ellipsis;
-    text-transform: capitalize;
     white-space: nowrap;
 }
 

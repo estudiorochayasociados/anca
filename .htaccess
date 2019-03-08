@@ -7,6 +7,10 @@ RewriteRule ^(.*)$ $1.php
 
 RewriteRule ^c/(.*)/(.*)$ ./contenidos.php?id=$2
 RewriteRule ^producto/(.*)/(.*)$ ./producto.php?cod=$2
+RewriteRule ^pagar/(.*)/(.*)$ ./pagar.php?metodos-pago=$2
+RewriteRule ^carrito/(.*)/(.*)$ ./carrito.php?metodos-pago=$2
+RewriteRule ^checkout(.*)/(.*)/(.*)$ ./checkout.php?cod_pedido=$2&tipo_pedido=$3
+RewriteRule ^landing/(.*)/(.*)$ ./landing.php?cod=$2
 
 SetOutputFilter DEFLATE
 

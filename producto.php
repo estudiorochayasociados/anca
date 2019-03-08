@@ -126,12 +126,71 @@ $url_limpia = str_replace("?error", "", $url_limpia);
 
                             if ($producto_data['data']['stock'] > 0) {
                                 ?>
-                                <form action="#">
+                                <?php
+                                if (isset($_POST["enviar"])) {
+                                    $carroEnvio = $carrito->checkEnvio();
+                                    if ($carroEnvio != '') {
+                                        $carrito->delete($carroEnvio);
+                                    }
+
+                                    $carroPago = $carrito->checkPago();
+                                    if ($carroPago != '') {
+                                        $carrito->delete($carroPago);
+                                    }
+                                    $carrito->set("id", $producto_data['data']['id']);
+                                    $carrito->set("cantidad", $_POST["cantidad"]);
+                                    $carrito->set("titulo", $producto_data['data']['titulo']);
+                                    $carrito->set("precio", $producto_data['data']['precio']);
+                                    $carrito->set("stock", $producto_data['data']['stock']);
+                                    if (($producto_data['data']['precio_descuento'] <= 0) || $producto_data['data']["precio_descuento"] == '') {
+                                        $carrito->set("precio", $producto_data['data']['precio']);
+                                    } else {
+                                        $carrito->set("precio", $producto_data['data']['precio_descuento']);
+                                    }
+
+                                    if (is_array($_SESSION["usuarios"])) {
+                                        if ($_SESSION["usuarios"]["descuento"] == 1) {
+                                            if ($producto_data['data']['precio'] != $producto_data['data']['precio_mayorista'] && $producto_data['data']['precio_mayorista'] != 0) {
+                                                $carrito->set("precio", $producto_data['data']['precio_mayorista']);
+                                            } else {
+                                                $carrito->set("precio", $producto_data['data']['precio']);
+                                            }
+                                        } else {
+                                            $carrito->set("precio", $producto_data['data']['precio']);
+                                        }
+                                    }
+
+
+                                    if ($carrito->add()) {
+                                        $funciones->headerMove($url_limpia."?success");
+                                    } else {
+                                        $funciones->headerMove($url_limpia."?error");
+                                    }
+                                }
+                                if (strpos(CANONICAL, "success") == true) {
+                                    echo "<div class='alert alert-success'>Agregaste un producto a tu carrito, querés <a href='" . URL . "/carrito'><b>pasar por caja</b></a> o <a href='" . URL . "/productos'><b>seguir comprando</b></a></div>";
+                                }
+                                if (strpos(CANONICAL, "error") == true) {
+                                    echo "<div class='alert alert-danger'>No se puede agregar por falta de stock, compruebe si ya posee este producto en su carrito.</div>";
+                                }
+                                ?>
+                                <form method="post">
                                     <div class="box-quantity d-flex hot-product2 mt-5">
-                                        <input class="quantity mr-15" type="number" min="1" value="1">
+                                        <input max="<?= $producto_data['data']['stock'] ?>"
+                                               min="1"
+                                               type="number"
+                                               name="cantidad"
+                                               id="sst"
+                                               maxlength="12"
+                                               value="1"
+                                               title="Ingresar valores con respecto al stock"
+                                               class="quantity mr-15"
+                                               oninvalid="this.setCustomValidity('Stock disponible: <?= $producto_data['data']['stock'] ?>')"
+                                               oninput="this.setCustomValidity('')"
+                                               onkeydown="return (event.keyCode!=13);">
                                         <div class="pro-actions">
-                                            <div class="actions-primary">
-                                                <a title="" data-original-title="Añadir al carrito"> Añadir al carrito</a>
+                                            <div class="actions-primary" onclick="this.form.submit();">
+                                                <button class="button-buy" name="enviar">Añadir al carrito</button>
                                             </div>
                                         </div>
                                     </div>

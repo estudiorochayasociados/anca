@@ -13,17 +13,14 @@ class Usuarios
     public $doc;
     public $email;
     public $password;
-    public $postal;
-    public $barrio;
     public $direccion;
+    public $postal;
     public $localidad;
     public $provincia;
     public $pais;
     public $telefono;
     public $celular;
     public $invitado;
-    public $vendedor;
-    public $plan;
     public $fecha;
     private $con;
 
@@ -48,7 +45,7 @@ class Usuarios
         $this->password = hash('sha256', $this->password . SALT);
         $validar = $this->validate();
         if (!is_array($validar)) {
-            $sql = "INSERT INTO `usuarios` (`cod`, `nombre`, `apellido`, `doc`, `email`, `password`, `postal`, `direccion`, `barrio`, `localidad`, `provincia`, `pais`, `telefono`, `celular`, `invitado`, `vendedor`, `plan`, `fecha`) VALUES ('{$this->cod}', '{$this->nombre}', '{$this->apellido}', '{$this->doc}', '{$this->email}', '{$this->password}', '{$this->postal}', '{$this->direccion}', '{$this->localidad}', '{$this->barrio}', '{$this->provincia}', '{$this->pais}', '{$this->telefono}', '{$this->celular}', '{$this->invitado}', '{$this->vendedor}', '{$this->plan}', '{$this->fecha}')";
+            $sql = "INSERT INTO `usuarios` (`cod`, `nombre`, `apellido`, `doc`, `email`, `password`, `direccion`, `postal`, `localidad`, `provincia`, `pais`, `telefono`, `celular`, `invitado`, `fecha`) VALUES ('{$this->cod}', '{$this->nombre}', '{$this->apellido}', '{$this->doc}', '{$this->email}', '{$this->password}', '{$this->direccion}', '{$this->postal}', '{$this->localidad}', '{$this->provincia}', '{$this->pais}', '{$this->telefono}', '{$this->celular}', '{$this->invitado}', '{$this->fecha}')";
             $this->con->sql($sql);
             $r = 1;
         } else {
@@ -64,7 +61,7 @@ class Usuarios
         if($usuario["password"] != $this->password){
             $this->password = hash('sha256', $this->password . SALT);
         }
-        $sql = "UPDATE `usuarios` SET `nombre` = '{$this->nombre}', `apellido` = '{$this->apellido}', `doc` = '{$this->doc}', `email` = '{$this->email}', `password` = '{$this->password}', `postal` = '{$this->postal}', `direccion` = '{$this->direccion}', `barrio` = '{$this->barrio}', `localidad` = '{$this->localidad}', `provincia` = '{$this->provincia}', `pais` = '{$this->pais}', `telefono` = '{$this->telefono}', `celular` = '{$this->celular}', `invitado` = '{$this->invitado}', `vendedor` = '{$this->vendedor}', `plan` = '{$this->plan}', `fecha` = '{$this->fecha}'WHERE `cod`='{$this->cod}'";
+        $sql = "UPDATE `usuarios` SET `nombre` = '{$this->nombre}', `apellido` = '{$this->apellido}', `doc` = '{$this->doc}', `email` = '{$this->email}', `password` = '{$this->password}', `direccion` = '{$this->direccion}', `postal` = '{$this->postal}', `localidad` = '{$this->localidad}', `provincia` = '{$this->provincia}', `pais` = '{$this->pais}', `telefono` = '{$this->telefono}', `celular` = '{$this->celular}', `invitado` = '{$this->invitado}', `fecha` = '{$this->fecha}'WHERE `cod`='{$this->cod}'";
 
         if (is_array($validar)) {
             if ($validar["email"] == $usuario["email"]) {
@@ -105,27 +102,9 @@ class Usuarios
 
     public function invitado_sesion()
     {
-        $_SESSION["usuarios"] = array(
-            'cod' => $this->cod,
-            'nombre' => $this->nombre,
-            'apellido' => $this->apellido,
-            'doc' => $this->doc,
-            'email' => $this->email,
-            'password' => $this->password,
-            'postal' => $this->postal,
-            'direccion' => $this->direccion,
-            'barrio' => $this->barrio,
-            'localidad' => $this->localidad,
-            'provincia' => $this->provincia,
-            'pais' => $this->pais,
-            'telefono' => $this->telefono,
-            'celular' => $this->celular,
-            'invitado' => $this->invitado,
-            'vendedor' => $this->vendedor,
-            'plan' => $this->plan,
-            'fecha' => $this->fecha
-        );
-
+        $_SESSION["usuarios"] = array('cod' => $this->cod, 'nombre' => $this->nombre, 'apellido' => $this->apellido, 'doc' => $this->doc, 'email' => $this->email, 'password' => $this->password, 'direccion' => $this->direccion, 'postal' => $this->postal, 'localidad' => $this->localidad, 'provincia' => $this->provincia, 'pais' => $this->pais, 'telefono' => $this->telefono, 'celular' => $this->celular, 'invitado' => $this->invitado, 'fecha' => $this->fecha);
+        $sql = "INSERT INTO `usuarios` (`cod`, `nombre`, `apellido`, `doc`, `email`, `password`, `direccion`, `postal`, `localidad`, `provincia`, `pais`, `telefono`, `celular`, `invitado`, `fecha`) VALUES ('{$this->cod}', '{$this->nombre}', '{$this->apellido}', '{$this->doc}', '{$this->email}', '{$this->password}', '{$this->direccion}', '{$this->postal}', '{$this->localidad}', '{$this->provincia}', '{$this->pais}', '{$this->telefono}', '{$this->celular}',1, '{$this->fecha}')";
+        $this->con->sql($sql);
     }
 
     public function delete()
