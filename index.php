@@ -296,11 +296,11 @@ if (!empty($novedades_datalast)) {
 
                             </a>
                             <div class="blog-img">
-                                <a href="single-blog.html"><img height="200" width="200" src="<?= $nov['imagenes']['0']['ruta']; ?>" alt="blog-image"></a>
+                                <a href="<?= URL . '/blog/' . $funciones->normalizar_link($nov['data']["titulo"]) . '/' . $nov['data']['cod'] ?>"><img height="200" width="200" src="<?= $nov['imagenes']['0']['ruta']; ?>" alt="<?=$nov['data']["titulo"]?>;"></a>
                             </div>
                             <div class="blog-desc">
                                 <h4>
-                                    <a href="single-blog.html">
+                                    <a href="<?= URL . '/blog/' . $funciones->normalizar_link($nov['data']["titulo"]) . '/' . $nov['data']['cod'] ?>">
                                         <?= ucfirst(substr(strip_tags($nov['data']['titulo']), 0, 60)); ?>...
                                     </a>
                                 </h4>

@@ -50,7 +50,7 @@ if (isset($_POST["agregar"])) {
             $zebra->enlarge_smaller_images = true;
             $zebra->preserve_time = true;
 
-            if ($zebra->resize(800, 700, ZEBRA_IMAGE_NOT_BOXED)) {
+            if ($zebra->resize(0, 0, ZEBRA_IMAGE_NOT_BOXED)) {
                 unlink($destinoFinal);
             }
 

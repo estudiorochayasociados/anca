@@ -21,7 +21,6 @@ $carroEnvio = $carrito->checkEnvio();
 if (count($carro) == 0) {
     $funciones->headerMove(URL . "/productos.php");
 }
-var_dump($_SESSION['carrito']);
 ?>
     <!-- Breadcrumb Start -->
     <div class="breadcrumb-area mt-30">
@@ -40,7 +39,7 @@ var_dump($_SESSION['carrito']);
     <div class="cart-main-area mt-15">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12 mb-10">
                     <div class="envio">
                         <?php
                         $metodos_de_envios = $envios->list(array("peso >= " . $carrito->peso_final() . " OR peso = 0"));
@@ -63,7 +62,7 @@ var_dump($_SESSION['carrito']);
                             ?>
                             <div class="clearfix"></div>
                             <form method="post" class="" id="envio">
-                                <select name="envio" class="form-control mt-5" id="envio" onchange="this.form.submit()">
+                                <select name="envio" class="form-control mt-10" id="envio" onchange="this.form.submit()">
                                     <option value="" selected disabled>Elegir envío</option>
                                     <?php
                                     foreach ($metodos_de_envios as $metodos_de_envio_) {
@@ -174,7 +173,7 @@ var_dump($_SESSION['carrito']);
                     <!-- Table Content Start -->
                     <div class="row mb-10">
                         <!-- Cart Button Start -->
-                        <div class="col-md-8 col-sm-12">
+                        <div class="col-md-8 col-sm-12" <?php if ($carroEnvio!=''){echo "style='background-color: #f8f8f8;'"; } ?>>
                             <form class="" method="post">
                                 <!---->
                                 <?php
@@ -232,6 +231,14 @@ var_dump($_SESSION['carrito']);
                                                 } else {
                                                     $lista_pagos = $pagos->list(array(" estado = 0 "));
                                                     foreach ($lista_pagos as $pago) {
+                                                        $precio_total = $carrito->precioSinMetodoDePago();
+                                                        if ($pago["aumento"] != 0 || $pago["disminuir"] != 0) {
+                                                            if ($pago["aumento"] > 0) {
+                                                                $precio_total = (($precio_total * $pago["aumento"]) / 100) + $precio_total;
+                                                            } else {
+                                                                $precio_total = $precio_total - (($precio_total * $pago["disminuir"]) / 100);
+                                                            }
+                                                        }
                                                         ?>
                                                         <div class="radioButtonPay mb-10">
                                                             <input type="radio"
@@ -245,7 +252,7 @@ var_dump($_SESSION['carrito']);
                                                                 <b><?= mb_strtoupper($pago["titulo"]) ?></b>
                                                             </label>
                                                             <p>
-                                                                <?= $pago["leyenda"] ?>
+                                                                <?= $pago["leyenda"] . " | Total: $" . $precio_total; ?>
                                                             </p>
                                                         </div>
                                                         <?php

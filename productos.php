@@ -25,7 +25,6 @@ $pagina = $funciones->antihack_mysqli(isset($_GET["pagina"]) ? $_GET["pagina"] :
 $categoria_get = $funciones->antihack_mysqli(isset($_GET["categoria"]) ? $_GET["categoria"] : '');
 $titulo = $funciones->antihack_mysqli(isset($_GET["buscar"]) ? $_GET["buscar"] : '');
 $orden_pagina = $funciones->antihack_mysqli(isset($_GET["order"]) ? $_GET["order"] : '');
-$ck = $funciones->antihack_mysqli(isset($_GET["ck"]) ? $_GET["ck"] : '');
 //
 $cantidad = 6;
 
@@ -160,8 +159,7 @@ $template->themeInit();
                             foreach ($banner_data_cuadrado as $banC) {
                                 ?>
                                 <!-- Single Banner Start -->
-                                <div class="col-img" style="height:300px;background:url(<?= $banC['imagenes']['0']['ruta']; ?>) no-repeat center center/70%;">
-                                    <a href="shop.html"><img src="img/banner/banner-sidebar.jpg" alt="slider-banner"></a>
+                                <div class="col-img" style="height:300px;background:url(<?= $banC['imagenes']['0']['ruta']; ?>) no-repeat center center/cover;">
                                 </div>
                                 <!-- Single Banner End -->
                                 <?php
@@ -190,7 +188,7 @@ $template->themeInit();
                                 <div class="toolbar-sorter d-flex align-items-center">
                                     <form method="get">
                                         <?php $funciones->variables_get_input("order"); ?>
-                                        <select name="order" onchange="this.form.submit()" class="sorter wide">
+                                        <select name="order" onchange="this.form.submit()" class="form-control h40 sorter wide">
                                             <option value="ultimos" <?php if ($orden_pagina == "ultimos") {
                                                 echo "selected";
                                             } ?>>Últimos

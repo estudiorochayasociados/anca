@@ -26,7 +26,7 @@ $template->themeInit();
 </div>
 <!-- Breadcrumb End -->
 <!-- Contact Email Area Start -->
-<div class="contact-area ptb-100 ptb-sm-60">
+<div class="contact-area mt-15 mb-10">
     <div class="container">
         <h3 class="mb-20">Contacto</h3>
         <p class="text-capitalize mb-20">Complete el siguiente formulario para poder contactarse con nosotros.</p>

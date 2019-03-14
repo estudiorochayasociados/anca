@@ -2,7 +2,8 @@
 require_once "Config/Autoload.php";
 Config\Autoload::runSitio();
 $template = new Clases\TemplateSite();
-$id = isset($_GET["id"]) ? $_GET["id"] : '';
+$funciones = new Clases\PublicFunction();
+$id = $funciones->antihack_mysqli(isset($_GET["id"]) ? $_GET["id"] : '');
 $contenido = new Clases\Contenidos();
 $contenido->set("cod", $id);
 $contenido_data = $contenido->view();
@@ -26,7 +27,7 @@ $template->themeInit();
 </div>
 <!-- Breadcrumb End -->
 <!-- About Us Start Here -->
-<div class="about-us pt-100 pt-sm-60">
+<div class="about-us mt-15 mb-10">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">

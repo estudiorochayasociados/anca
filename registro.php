@@ -40,7 +40,6 @@ $template->themeInit();
         <div class="row">
             <div class="col-sm-12">
                 <?php
-                var_dump($_SESSION['usuarios']);
                 if (isset($_POST["registrar"])) {
                     if ($_POST["password"] == $_POST["password2"]) {
                         $nombre = $funciones->antihack_mysqli(isset($_POST["nombre"]) ? $_POST["nombre"] : '');
@@ -48,6 +47,9 @@ $template->themeInit();
                         $email = $funciones->antihack_mysqli(isset($_POST["email"]) ? $_POST["email"] : '');
                         $telefono = $funciones->antihack_mysqli(isset($_POST["telefono"]) ? $_POST["telefono"] : '');
                         $password = $funciones->antihack_mysqli(isset($_POST["password"]) ? $_POST["password"] : '');
+                        $direccion = $funciones->antihack_mysqli(isset($_POST["direccion_reg"]) ? $_POST["direccion_reg"] : '');
+                        $localidad = $funciones->antihack_mysqli(isset($_POST["localidad"]) ? $_POST["localidad"] : '');
+                        $provincia = $funciones->antihack_mysqli(isset($_POST["provincia"]) ? $_POST["provincia"] : '');
                         $cod = substr(md5(uniqid(rand())), 0, 10);
                         $fecha = getdate();
                         $fecha = $fecha['year'] . '-' . $fecha['mon'] . '-' . $fecha['mday'];
@@ -56,7 +58,10 @@ $template->themeInit();
                         $usuario->set("nombre", $nombre);
                         $usuario->set("apellido", $apellido);
                         $usuario->set("email", $email);
+                        $usuario->set("direccion", $direccion);
                         $usuario->set("telefono", $telefono);
+                        $usuario->set("localidad", $localidad);
+                        $usuario->set("provincia", $provincia);
                         $usuario->set("password", $password);
                         $usuario->set("fecha", $fecha);
 
@@ -68,6 +73,7 @@ $template->themeInit();
                         } else {
                             $usuario->set("password", $password);
                             $usuario->login();
+
                             //Envio de mail al usuario
                             $mensaje = 'Gracias por registrarse ' . ucfirst($nombre) . '<br/>';
                             $asunto = TITULO . ' - Registro';
@@ -88,7 +94,8 @@ $template->themeInit();
                             $enviar->set("emisor", $emisor2);
                             $enviar->set("mensaje", $mensaje2);
                             $enviar->emailEnviar();
-                            $funciones->headerMove(URL);
+
+                            $funciones->headerMove(URL.'/sesion');
                         }
                     } else {
                         ?>
@@ -127,6 +134,30 @@ $template->themeInit();
                             <div class="col-md-10">
                                 <input type="number" class="form-control" placeholder="Teléfono" name="telefono"
                                        required>
+                            </div>
+                        </div>
+                        <div class="form-group d-md-flex align-items-md-center">
+                            <label class="control-label col-md-2"><span class="require">*</span>Dirección</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" placeholder="Dirección" name="direccion_reg"
+                                       required>
+                            </div>
+                        </div>
+                        <div class="form-group d-md-flex align-items-md-center">
+                            <label class="control-label col-md-2"><span class="require">*</span>Provincia</label>
+                            <div class="col-md-10">
+                                <select class="pull-right form-control h40" name="provincia" id="provincia" required>
+                                    <option value="" disabled>Provincia</option>
+                                    <?php $funciones->provincias() ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group d-md-flex align-items-md-center">
+                            <label class="control-label col-md-2"><span class="require">*</span>Localidad</label>
+                            <div class="col-md-10">
+                                <select class="form-control h40" name="localidad" id="localidad" required>
+                                    <option value="" disabled>Localidad</option>
+                                </select>
                             </div>
                         </div>
                     </fieldset>

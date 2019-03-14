@@ -151,7 +151,6 @@ ul {
     font-weight: 900;
     line-height: 20px;
     position: relative;
-    text-transform: capitalize;
     z-index: 1;
     margin: 0;
     display: -webkit-box;
@@ -492,7 +491,6 @@ ul {
   font-size: 13px;
   font-weight: 400;
   margin-left: 8px;
-  text-transform: capitalize;
   vertical-align: top;
 }
 .cart-box-width {
@@ -671,7 +669,6 @@ span.total-pro {
     font-weight: 700;
     padding: 10px 15px;
     position: relative;
-    text-transform: capitalize;
     font-family: "Lato",sans-serif;
 }
 
@@ -680,7 +677,6 @@ span.total-pro {
     padding: 7px 20px;
     font-size: 14px;
     font-weight: 400;
-    text-transform: capitalize;
 }
 
 .header-bottom-list > li > ul.ht-dropdown li:hover a {
@@ -793,7 +789,6 @@ span.total-pro {
     overflow-wrap: break-word;
     padding: 3.7px 20px;
     position: relative;
-    text-transform: capitalize;
     cursor: pointer
 }
 
@@ -917,7 +912,6 @@ li.megamenu-img a {
     font-size: 14px;
     font-weight: 400;
     line-height: 30px;
-    text-transform: capitalize;
 }
 .ht-dropdown .single-megamenu ul li a{
 	padding: 0;
@@ -1246,7 +1240,6 @@ li.megamenu-img a {
     font-size: 12px;
     font-weight: normal;
     line-height: 14px;
-    text-transform: capitalize;
 }
 .pro-content {
   min-height: 115px;
@@ -1265,7 +1258,6 @@ li.megamenu-img a {
     overflow: hidden;
     padding: 0;
     text-overflow: ellipsis;
-    text-transform: capitalize;
     white-space: nowrap;
 }
 
@@ -1457,7 +1449,6 @@ li.megamenu-img a {
   font-weight: 900;
   line-height: 1;
   margin: 0;
-  text-transform: capitalize;
 }
 .tab-menu {
   -webkit-box-align: center;
@@ -1544,13 +1535,11 @@ li.megamenu-img a {
   font-size: 20px;
   font-weight: 400;
   margin: 20px 0 10px;
-  text-transform: capitalize;
 }
 .support-desc span {
   color: #363636;
   font-size: 14px;
   margin: 0;
-  text-transform: capitalize;
 }
 
 /*----------------------------------------*/
@@ -1584,7 +1573,6 @@ li.megamenu-img a {
     height: 50px;
     padding: 0 166px 0 20px;
     width: 100%;
-    text-transform: capitalize;
 }
 .newsletter-box {
     position: relative;
@@ -1631,7 +1619,6 @@ li.megamenu-img a {
     line-height: 34px;
     margin: 0 0 15px;
     position: relative;
-    text-transform: capitalize;
 }
 
 .footer-list li a {
@@ -1640,7 +1627,6 @@ li.megamenu-img a {
   font-size: 14px;
   font-weight: 400;
   position: relative;
-  text-transform: capitalize;
 }
 
 .footer-list li {
@@ -1771,7 +1757,6 @@ li.megamenu-img a {
     line-height: 40px;
 }
 .footer-list li {
-  text-transform: capitalize;
   transition: all 0.5s ease-in-out 0s;
 }
 .address-content li {
@@ -1894,7 +1879,6 @@ li.megamenu-img a {
   font-size: 13px;
   font-weight: 700;
   line-height: 14px;
-  text-transform: capitalize;
 }
 
 .hot-product2 .countdown::before {
@@ -2109,7 +2093,6 @@ li.megamenu-img a {
   left: 0;
   padding: 10px 0 0 10px;
   position: absolute;
-  text-transform: capitalize;
   top: 0;
   z-index: 4;
 }
@@ -2122,7 +2105,6 @@ li.megamenu-img a {
   font-size: 18px;
   font-weight: 700;
   padding: 10px 25px;
-  text-transform: capitalize;
 }
 .blog-desc .readmore {
   margin-top: 25px;
@@ -2159,7 +2141,6 @@ li.megamenu-img a {
     font-size: 13px;
     line-height: 25px;
     margin-right: 20px;
-    text-transform: capitalize;
 }
 .blog-desc li a {
   color: #666;
@@ -2301,7 +2282,6 @@ li.megamenu-img a {
 
 .submit-review label {
     font-size: 14px;
-    text-transform: capitalize;
     color: #555;
 }
 
@@ -2321,7 +2301,6 @@ li.megamenu-img a {
     letter-spacing: 1px;
     margin: 0 5px;
     padding: 7px 16px;
-    text-transform: capitalize;
     color: #444;
 }
 
@@ -2351,7 +2330,6 @@ li.megamenu-img a {
     font-size: 14px;
     line-height: 25px;
     margin-right: 5px;
-    text-transform: capitalize;
 }
 
 .breadcrumb-area .breadcrumb li.active a,
@@ -2437,7 +2415,6 @@ li.megamenu-img a {
     font-weight: 500;
     line-height: 1;
     margin: 0 0 15px;
-    text-transform: capitalize;
 }
 
 .rating i,
@@ -2451,7 +2428,6 @@ li.megamenu-img a {
   display: inline-block;
   font-size: 13px;
   margin-top: 20px;
-  text-transform: capitalize;
 }
 
 .rating-feedback a:hover {
@@ -2497,7 +2473,6 @@ li.megamenu-img a {
 .color label {
     color: #2c2c2c;
     margin-bottom: 5px;
-    text-transform: capitalize;
     display: block;
 }
 
@@ -2525,7 +2500,6 @@ li.megamenu-img a {
     height: 46px;
     line-height: 46px;
     padding: 0 15px;
-    text-transform: capitalize;
 }
 
 .add-cart:hover {
@@ -2564,7 +2538,6 @@ li.megamenu-img a {
     color: #666666;
     font-size: 14px;
     font-weight: 500;
-    text-transform: capitalize;
 }
 
 .in-stock i {
@@ -2678,7 +2651,6 @@ li.megamenu-img a {
     font-size: 18px;
     font-weight: 500;
     margin: 30px 0;
-    text-transform: capitalize;
 }
 
 .review-list li {
@@ -2751,7 +2723,6 @@ li.megamenu-img a {
   font-weight: 600;
   line-height: 1;
   margin-bottom: 20px;
-  text-transform: capitalize;
 }
 
 .e-title {
@@ -2808,7 +2779,6 @@ li.megamenu-img a {
     font-weight: 400;
     line-height: 20px;
     padding: 10px 0;
-    text-transform: capitalize;
     cursor: pointer;
 }
 
@@ -3164,7 +3134,6 @@ ul.tag-list > li > a {
     color: #333333;
     font-size: 25px;
     font-weight: 600;
-    text-transform: capitalize;
 }
 
 .well {
@@ -3458,7 +3427,6 @@ ul.tag-list > li > a {
     color: #777777;
     display: inline-block;
     font-size: 12px;
-    text-transform: capitalize;
 }
 
 .compare-details h4 {
@@ -3468,7 +3436,6 @@ ul.tag-list > li > a {
 
 .compare-details h4 a {
     font-size: 13px;
-    text-transform: capitalize;
     color: #333;
 }
 
@@ -3503,7 +3470,6 @@ ul.tag-list > li > a {
     margin-bottom: 30px;
     padding: 1em 2em 1em 3.5em;
     position: relative;
-    text-transform: capitalize;
     width: auto;
 }
 .coupon-accordion h3::before {
@@ -3795,7 +3761,6 @@ p.checkout-coupon input[type="submit"] {
     font-size: 14px;
     padding-left: 25px;
     position: relative;
-    text-transform: capitalize;
     text-decoration: none
 }
 
@@ -3861,7 +3826,6 @@ p.checkout-coupon input[type="submit"] {
 /*----------------------------------------*/
 .cart-main-area .section-title h2,
 .coupon-area .section-title h2 {
-    text-transform: capitalize;
     color: #555;
     font-weight: 500;
 }
@@ -3903,7 +3867,6 @@ p.checkout-coupon input[type="submit"] {
     font-weight: 500;
     padding: 20px 10px;
     text-align: center;
-    text-transform: capitalize;
     vertical-align: middle;
     white-space: nowrap;
     font-size: 15px;
@@ -3946,7 +3909,6 @@ p.checkout-coupon input[type="submit"] {
     font-weight: 500;
     margin-left: 10px;
     color: #6f6f6f;
-    text-transform: capitalize;
 }
 
 .product-stock-status span {
@@ -4192,7 +4154,6 @@ a.shipping-calculator-button:hover {
     font-size: 16px;
     font-weight: 700;
     margin-bottom: 5px;
-    text-transform: capitalize;
 }
 
 /*----------------------------------------*/
@@ -4202,7 +4163,6 @@ a.shipping-calculator-button:hover {
   display: inline-block;
   font-size: 22px;
   font-weight: 600;
-  text-transform: capitalize;
 }
 
 .return-customer-btn.read-more {
@@ -4521,7 +4481,6 @@ a.shipping-calculator-button:hover {
   width: 100%;
 }
 .popup_off_banner {
-  color: #ffffff;
   cursor: pointer;
   display: block;
   font-size: 35px;

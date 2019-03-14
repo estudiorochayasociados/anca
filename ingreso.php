@@ -59,7 +59,7 @@ $template->themeInit();
                                     <br/><div class="alert alert-danger" role="alert">Email o contraseña incorrecta.</div>
                                     <?php
                                 } else {
-                                    $funciones->headerMove(URL.'/index');
+                                    $funciones->headerMove(URL.'/sesion');
                                 }
                             }
                             ?>

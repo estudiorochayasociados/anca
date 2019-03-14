@@ -11,6 +11,8 @@ RewriteRule ^pagar/(.*)/(.*)$ ./pagar.php?metodos-pago=$2
 RewriteRule ^carrito/(.*)/(.*)$ ./carrito.php?metodos-pago=$2
 RewriteRule ^checkout(.*)/(.*)/(.*)$ ./checkout.php?cod_pedido=$2&tipo_pedido=$3
 RewriteRule ^landing/(.*)/(.*)$ ./landing.php?cod=$2
+RewriteRule ^sesion/(.*)/(.*)$ ./sesion.php?op=$2
+RewriteRule ^blog/(.*)/(.*)$ ./blog.php?cod=$2
 
 SetOutputFilter DEFLATE
 

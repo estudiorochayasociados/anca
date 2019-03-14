@@ -75,18 +75,15 @@
                 <!-- Single Footer Start -->
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="single-footer mb-sm-40">
-                        <h3 class="footer-title">My Account</h3>
+                        <h3 class="footer-title">Contacto</h3>
                         <div class="footer-content">
                             <ul class="footer-list address-content">
-                                <li><i class="lnr lnr-map-marker"></i> Address: 169-C, Technohub, Dubai Silicon Oasis.</li>
-                                <li><i class="lnr lnr-envelope"></i><a href="#"> mail Us: Support@truemart.com </a></li>
+                                <li><i class="lnr lnr-map-marker"></i> Dirección: <?=DIRECCION?>, <?=CIUDAD?>, <?=PROVINCIA?>.</li>
+                                <li><i class="lnr lnr-envelope"></i><a href="#"> E-mail: <?=EMAIL?> </a></li>
                                 <li>
-                                    <i class="lnr lnr-phone-handset"></i> Phone: (+800) 123 456 789)
+                                    <i class="lnr lnr-phone-handset"></i> Teléfono: <?=TELEFONO?>
                                 </li>
                             </ul>
-                            <div class="payment mt-25 bdr-top pt-30">
-                                <a href="#"><img class="img" src="<?=URL?>/assets/img/payment/1.png" alt="payment-image"></a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -106,8 +103,6 @@
                     <li><a href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
                     <li><a href="https://plus.google.com/"><i class="fa fa-google-plus"></i></a></li>
                     <li><a href="https://www.linkedin.com/"><i class="fa fa-linkedin"></i></a></li>
-                    <li><a href="#"><img src="<?=URL?>/assets/img/icon/social-img1.png" alt="google play"></a></li>
-                    <li><a href="#"><img src="<?=URL?>/assets/img/icon/social-img2.png" alt="app store"></a></li>
                 </ul>
             </div>
         </div>
@@ -119,7 +114,10 @@
         <div class="container">
 
             <div class="copyright-text text-center">
-                <p>Copyright © 2018 <a target="_blank" href="#">Truemart</a> All Rights Reserved.</p>
+                <p>Copyright © 2019
+                    <a target="_blank" href="http://www.estudiorochayasoc.com">Estudio Rocha & Asociados.
+                    </a> Todos los derechos reservados.
+                </p>
             </div>
         </div>
         <!-- Container End -->
@@ -132,31 +130,30 @@
 </div>
 <script async src="https://static.addtoany.com/menu/page.js"></script>
 <!-- jquery 3.2.1 -->
-<script src="<?=URL?>/assets/js/vendor/jquery-3.2.1.min.js"></script>
+<script src="<?= URL ?>/assets/js/vendor/jquery-3.2.1.min.js"></script>
 <!-- Countdown js -->
-<script src="<?=URL?>/assets/js/jquery.countdown.min.js"></script>
+<script src="<?= URL ?>/assets/js/jquery.countdown.min.js"></script>
 <!-- Mobile menu js -->
-<script src="<?=URL?>/assets/js/jquery.meanmenu.min.js"></script>
+<script src="<?= URL ?>/assets/js/jquery.meanmenu.min.js"></script>
 <!-- ScrollUp js -->
-<script src="<?=URL?>/assets/js/jquery.scrollUp.js"></script>
+<script src="<?= URL ?>/assets/js/jquery.scrollUp.js"></script>
 <!-- Nivo slider js -->
-<script src="<?=URL?>/assets/js/jquery.nivo.slider.js"></script>
+<script src="<?= URL ?>/assets/js/jquery.nivo.slider.js"></script>
 <!-- Fancybox js -->
-<script src="<?=URL?>/assets/js/jquery.fancybox.min.js"></script>
+<script src="<?= URL ?>/assets/js/jquery.fancybox.min.js"></script>
 <!-- Jquery nice select js -->
-<script src="<?=URL?>/assets/js/jquery.nice-select.min.js"></script>
 <!-- Jquery ui price slider js -->
-<script src="<?=URL?>/assets/js/jquery-ui.min.js"></script>
+<script src="<?= URL ?>/assets/js/jquery-ui.min.js"></script>
 <!-- Owl carousel -->
-<script src="<?=URL?>/assets/js/owl.carousel.min.js"></script>
+<script src="<?= URL ?>/assets/js/owl.carousel.min.js"></script>
 <!-- Bootstrap popper js -->
-<script src="<?=URL?>/assets/js/popper.min.js"></script>
+<script src="<?= URL ?>/assets/js/popper.min.js"></script>
 <!-- Bootstrap js -->
-<script src="<?=URL?>/assets/js/bootstrap.min.js"></script>
+<script src="<?= URL ?>/assets/js/bootstrap.min.js"></script>
 <!-- Plugin js -->
-<script src="<?=URL?>/assets/js/plugins.js"></script>
+<script src="<?= URL ?>/assets/js/plugins.js"></script>
 <!-- Main activaion js -->
-<script src="<?=URL?>/assets/js/main.js"></script>
+<script src="<?= URL ?>/assets/js/main.js"></script>
 <script>
     $("#provincia").change(function () {
         $("#provincia option:selected").each(function () {

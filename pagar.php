@@ -13,17 +13,31 @@ $usuarios = new Clases\Usuarios();
 $usuarioSesion = $usuarios->view_sesion();
 
 $cod_pedido = $_SESSION["cod_pedido"];
-$tipo_pedido = isset($_GET["metodos-pago"]) ? $_GET["metodos-pago"] : '';
+$tipo_pedido = $funciones->antihack_mysqli(isset($_GET["metodos-pago"]) ? $_GET["metodos-pago"] : '');
 if ($tipo_pedido == '') {
     $funciones->headerMove(URL . "/carrito");
 }
-if (is_array($usuarioSesion)) {
+if (!empty($usuarioSesion)) {
     $funciones->headerMove(URL . "/checkout/" . $cod_pedido . "/" . $tipo_pedido);
 }
 $error='';
 ?>
+    <!-- Breadcrumb Start -->
+    <div class="breadcrumb-area mt-30">
+        <div class="container">
+            <div class="breadcrumb">
+                <ul class="d-flex align-items-center">
+                    <li><a href="<?= URL ?>/index">Inicio</a></li>
+                    <li><a href="">Carrito</a></li>
+                    <li class="active"><a href="">Pagar</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Container End -->
+    </div>
+    <!-- Breadcrumb End -->
     <!--================Categories Banner Area =================-->
-    <section class="solid_banner_area">
+    <section class="solid_banner_area mt-10">
         <div class="container">
             <div class="solid_banner_inner navegador">
                 <h3>Compra N°: <?= $cod_pedido ?></h3>

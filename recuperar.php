@@ -27,19 +27,23 @@ $template->themeInit();
 </div>
 <!-- Breadcrumb End -->
 <!-- Register Account Start -->
-<div class="Lost-pass mt-15">
+<div class="Lost-pass mt-15 mb-10">
     <div class="container">
         <div class="register-title">
             <h3 class="mb-10 custom-title">Recuperar contraseña</h3>
         </div>
         <?php
         if (isset($_POST["recuperar"])) {
-            $email = $funcionesNav->antihack_mysqli(isset($_POST["email"]) ? $_POST["email"] : '');
+            $email = $funciones->antihack_mysqli(isset($_POST["email"]) ? $_POST["email"] : '');
             $usuario->set("email", $email);
             $data = $usuario->validate();
             if (!empty($data)) {
+                $cod = substr(md5(uniqid(rand())), 0, 10);
+                $usuario->set("cod", $data["cod"]);
+                $usuario->editUnico("password", $cod);
+
                 //Envio de mail al usuario
-                $mensaje = 'Su contraseña recuperada es ' . $data['password'] . '<br/>';
+                $mensaje = 'Su contraseña recuperada es ' . $cod . '<br/>';
                 $asunto = TITULO . ' - Recuperación de contraseña';
                 $receptor = $email;
                 $emisor = EMAIL;

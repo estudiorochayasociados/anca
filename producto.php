@@ -7,7 +7,7 @@ $funciones = new Clases\PublicFunction();
 $producto = new Clases\Productos();
 $carrito = new Clases\Carrito();
 //Producto
-$cod = isset($_GET["cod"]) ? $_GET["cod"] : '';
+$cod = $funciones->antihack_mysqli(isset($_GET["cod"]) ? $_GET["cod"] : '');
 $producto->set("cod", $cod);
 $producto_data = $producto->view_();
 //Productos relacionados
@@ -98,7 +98,7 @@ $url_limpia = str_replace("?error", "", $url_limpia);
                     <!-- Thumbnail Description Start -->
                     <div class="col-lg-7">
                         <div class="thubnail-desc fix">
-                            <h3 class="product-header"><?= ucfirst($producto_data['data']['titulo']); ?></h3>
+                            <h3 id="title" class="product-header"><?= ucfirst($producto_data['data']['titulo']); ?></h3>
                             <div class="pro-price mtb-30">
                                 <p class="d-flex align-items-center">
                                     <?php
@@ -162,9 +162,9 @@ $url_limpia = str_replace("?error", "", $url_limpia);
 
 
                                     if ($carrito->add()) {
-                                        $funciones->headerMove($url_limpia."?success");
+                                        $funciones->headerMove($url_limpia."?success#title");
                                     } else {
-                                        $funciones->headerMove($url_limpia."?error");
+                                        $funciones->headerMove($url_limpia."?error#title");
                                     }
                                 }
                                 if (strpos(CANONICAL, "success") == true) {
@@ -277,9 +277,9 @@ if (!empty($productos_relacionados_data)) {
                     <!-- Single Product Start -->
                     <div class="single-product">
                         <!-- Product Image Start -->
-                        <div class="pro-img">
+                        <div class="pro-img" style="padding: 5px;">
                             <a href="<?= URL . '/producto/' . $funciones->normalizar_link($prod['data']["titulo"]) . '/' . $prod['data']['cod'] ?>">
-                                <img height="220" class="primary-img" src="<?= URL . '/' . $prod['imagenes']['0']['ruta']; ?>" alt="single-product">
+                                <img height="260" class="primary-img" src="<?= URL . '/' . $prod['imagenes']['0']['ruta']; ?>" alt="single-product">
                             </a>
                         </div>
                         <!-- Product Image End -->

@@ -7,7 +7,9 @@
     font-weight: 500;
     text-transform: capitalize;
 }
-
+.blanco{
+    color: white;
+}
 .non-stock i {
     font-size: 16px;
     margin-right: 5px;

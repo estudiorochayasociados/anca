@@ -193,9 +193,10 @@ class PublicFunction
     }
 
 
-    public function localidades($palabra)
+    public function localidades()
     {
         $con = new Conexion();
+        $palabra = ($_GET["elegido"]);
         $sql = "SELECT  distinct `_provincias`.`nombre`,`_localidades`.`nombre` FROM  `_localidades` , `_provincias` WHERE  `_localidades`.`provincia_id` =  `_provincias`.`id` AND `_provincias`.`nombre`  LIKE '%$palabra%' AND `_localidades`.`nombre` != '' ORDER BY `_localidades`.`nombre`";
         $notas = $con->sqlReturn($sql);
         while ($row = mysqli_fetch_assoc($notas)) {

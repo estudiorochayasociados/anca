@@ -99,6 +99,17 @@ class Carrito
         return $precio;
     }
 
+    public function precioSinMetodoDePago()
+    {
+        $precio = 0;
+        foreach ($_SESSION["carrito"] as $key => $val) {
+            if ($val['id'] != "Metodo-Pago") {
+                $precio += ($val["precio"]*$val["cantidad"]);
+            }
+        }
+        return $precio;
+    }
+
     public function delete($key)
     {
         unset($_SESSION["carrito"][$key]);
