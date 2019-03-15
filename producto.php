@@ -61,9 +61,9 @@ $url_limpia = str_replace("?error", "", $url_limpia);
                                 <div id="imagen<?= $img['id']; ?>" class="tab-pane fade show <?php if ($key == 0) {
                                     echo 'active';
                                 } ?>">
-                                    <a data-fancybox="images" href="<?= URL . '/' . $img['ruta']; ?>">
-                                        <img height="400" src="<?= URL . '/' . $img['ruta']; ?>" alt="<?= ucfirst($producto_data['data']['titulo']); ?>">
-                                    </a>
+                                    <div style="height:300px;background:url(<?= URL . '/' . $img['ruta']; ?>) no-repeat center center/contain;">
+
+                                    </div>
                                 </div>
                                 <?php
                             }
@@ -82,7 +82,9 @@ $url_limpia = str_replace("?error", "", $url_limpia);
                                         <a class="<?php if ($key == 0) {
                                             echo 'active';
                                         } ?>" data-toggle="tab" href="#imagen<?= $img['id'] ?>">
-                                            <img height="140" src="<?= URL . '/' . $img['ruta']; ?>" alt="<?= ucfirst($producto_data['data']['titulo']); ?>">
+                                            <div style="height:100px;background:url(<?= URL . '/' . $img['ruta']; ?>) no-repeat center center/contain;">
+
+                                            </div>
                                         </a>
                                         <?php
                                     }
@@ -279,7 +281,9 @@ if (!empty($productos_relacionados_data)) {
                         <!-- Product Image Start -->
                         <div class="pro-img" style="padding: 5px;">
                             <a href="<?= URL . '/producto/' . $funciones->normalizar_link($prod['data']["titulo"]) . '/' . $prod['data']['cod'] ?>">
-                                <img height="260" class="primary-img" src="<?= URL . '/' . $prod['imagenes']['0']['ruta']; ?>" alt="single-product">
+                                <div style="height:260px;background:url(<?= URL . '/' . $prod['imagenes']['0']['ruta']; ?>) no-repeat center center/contain;">
+
+                                </div>
                             </a>
                         </div>
                         <!-- Product Image End -->

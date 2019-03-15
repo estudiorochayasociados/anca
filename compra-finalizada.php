@@ -3,7 +3,7 @@ require_once "Config/Autoload.php";
 Config\Autoload::runSitio();
 $template = new Clases\TemplateSite();
 $funciones = new Clases\PublicFunction();
-$template->set("title", "Compra finalizada");
+$template->set("title", TITULO." | Compra finalizada");
 $template->set("description", "Compra finalizada");
 $template->set("keywords", "Compra finalizada");
 $template->set("favicon", FAVICON);
@@ -18,10 +18,9 @@ $usuarios = new Clases\Usuarios();
 $cod_pedido = $_SESSION["cod_pedido"];
 $pedidos->set("cod", $cod_pedido);
 $pedido_info = $pedidos->info();
-
-if (count($_SESSION["carrito"]) == 0) {
+if (empty($_SESSION["carrito"])) {
     $funciones->headerMove(URL . "/index");
-}
+}else{
 
 $usuarios->set("cod", $_SESSION["usuarios"]["cod"]);
 $usuario_data = $usuarios->view();
@@ -106,6 +105,7 @@ $correo->set("receptor", EMAIL);
 $correo->set("emisor", EMAIL);
 $correo->set("mensaje", $mensajeCompra);
 $correo->emailEnviar();
+}
 ?>
     <!-- Breadcrumb Start -->
     <div class="breadcrumb-area mt-30">
@@ -121,7 +121,7 @@ $correo->emailEnviar();
         <!-- Container End -->
     </div>
     <!-- Breadcrumb End -->
-    <div id="sns_content" class="wrap layout-m">
+    <div id="sns_content" class="wrap layout-m mt-15 mb-10">
         <div class="container">
             <div class="ps-404">
                 <div>
@@ -187,7 +187,9 @@ $correo->emailEnviar();
                             ?>
                             </tbody>
                         </table>
-                        <h3>TOTAL: <h3>$<?= number_format($precio, "2", ",", ".") ?></h3></h3>
+                        <div class="mt-10 derecha">
+                        <h3>TOTAL: $<?= number_format($precio, "2", ",", ".") ?></h3>
+                        </div>
                     </div>
                 </div>
             </div>

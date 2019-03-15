@@ -31,60 +31,57 @@ if (empty($pedidosArrayAgrupados)) {
             <?php $fecha = $fecha1 . $fecha[1]; ?>
             <div class="card">
                 <a data-toggle="collapse" href="#collapse<?= $value["cod"] ?>" aria-expanded="false" aria-controls="collapse<?= $value["cod"] ?>" class="collapsed color_a">
-                    <div class="card-header bg-info" role="tab" id="heading">
-                        <span class="blanco">Pedido <?= $value["cod"] ?></span>
-                        <span class="hidden-xs hidden-sm blanco">- Fecha <?= $fecha ?></span>
-                        <?php if ($value["estado"] == 0): ?>
-                            <br class="visible-xs">
-                            <span style="padding:5px;font-size:13px;width: 24%;text-align: center;"
-                                  class="btn-danger pull-right hidden-xs">
-                                Estado: Carrito no cerrado
-                             </span>
-                            <span style="padding:5px;font-size:13px;width: 100%;text-align: center;"
-                                  class="btn-danger pull-right visible-xs">
-                                Estado: Carrito no cerrado
-                             </span>
-                        <?php elseif ($value["estado"] == 1): ?>
-                            <br class="visible-xs">
-                            <span style="padding:5px;font-size:13px;width: 24%;text-align: center;"
-                                  class="btn-warning pull-right hidden-xs">
-                                Estado: Pago pendiente
-                             </span>
-                            <span style="padding:5px;font-size:13px;width: 100%;text-align: center;"
-                                  class="btn-warning pull-right visible-xs">
-                                Estado: Pago pendiente
-                             </span>
-                        <?php elseif ($value["estado"] == 2): ?>
-                            <br class="visible-xs">
-                            <span style="padding:5px;font-size:13px;width: 24%;text-align: center;"
-                                  class="btn-success pull-right hidden-xs">
-                                Estado: Pago aprobado
-                             </span>
-                            <span style="padding:5px;font-size:13px;width: 100%;text-align: center;"
-                                  class="btn-success pull-right visible-xs">
-                                Estado: Pago aprobado
-                             </span>
-                        <?php elseif ($value["estado"] == 3): ?>
-                            <br class="visible-xs">
-                            <span style="padding:5px;font-size:13px;width: 24%;text-align: center;"
-                                  class="btn-primary pull-right hidden-xs">
-                                Estado: Pago enviado
-                             </span>
-                            <span style="padding:5px;font-size:13px;width: 100%;text-align: center;"
-                                  class="btn-primary pull-right visible-xs">
-                                Estado: Pago enviado
-                             </span>
-                        <?php elseif ($value["estado"] == 4): ?>
-                            <br class="visible-xs">
-                            <span style="padding:5px;font-size:13px;width: 24%;text-align: center;"
-                                  class="btn-danger pull-right hidden-xs">
-                                Estado: Pago rechazado
-                             </span>
-                            <span style="padding:5px;font-size:13px;width: 100%;text-align: center;"
-                                  class="btn-danger pull-right visible-xs">
-                                Estado: Pago rechazado
-                             </span>
-                        <?php endif; ?>
+                    <div class="card-header bg-info card-headerNew" role="tab" id="heading">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <span class="blanco">Pedido <?= $value["cod"] ?></span>
+                                <span class="hidden-xs hidden-sm blanco">- Fecha <?= $fecha ?></span>
+                            </div>
+                            <div class="col-md-2">
+                                <?php if ($value["estado"] == 0): ?>
+                                    <br class="visible-xs">
+                                    <button class="btn btn-lg btn-danger bm-30 pt-40 pb-40 boton hidden-xs">
+                                        Estado: Carrito no cerrado
+                                    </button>
+                                    <button class="btn-danger pull-right boton-mobile visible-xs">
+                                        Estado: Carrito no cerrado
+                                    </button>
+                                <?php elseif ($value["estado"] == 1): ?>
+                                    <br class="visible-xs">
+                                    <button style="padding:5px;font-size:13px"
+                                            class="btn btn-lg btn-warning bm-30 pt-40 pb-40 boton hidden-xs">
+                                        Estado: Pago pendiente
+                                    </button>
+                                    <button class="btn btn-lg btn-warning boton-mobile bm-30 pt-40 pb-40 pull-right visible-xs">
+                                        Estado: Pago pendiente
+                                    </button>
+                                <?php elseif ($value["estado"] == 2): ?>
+                                    <br class="visible-xs">
+                                    <button class="btn btn-lg btn-success bm-30 pt-40 pb-40 boton hidden-xs">
+                                        Estado: Pago aprobado
+                                    </button>
+                                    <button class="btn btn-lg btn-success bm-30 pt-40 pb-40 boton-mobile pull-right visible-xs">
+                                        Estado: Pago aprobado
+                                    </button>
+                                <?php elseif ($value["estado"] == 3): ?>
+                                    <br class="visible-xs">
+                                    <button class="btn btn-lg btn-primary bm-30 pt-40 pb-40 boton hidden-xs">
+                                        Estado: Pago enviado
+                                    </button>
+                                    <button class="btn btn-lg btn-primary bm-30 pt-40 pb-40 boton-mobile pull-right visible-xs">
+                                        Estado: Pago enviado
+                                    </button>
+                                <?php elseif ($value["estado"] == 4): ?>
+                                    <br class="visible-xs">
+                                    <button class="btn btn-lg btn-danger bm-30 pt-40 pb-40 boton hidden-xs">
+                                        Estado: Pago rechazado
+                                    </button>
+                                    <button class="btn btn-lg btn-danger bm-30 pt-40 pb-40 boton-mobile pull-right visible-xs">
+                                        Estado: Pago rechazado
+                                    </button>
+                                <?php endif; ?>
+                            </div>
+                        </div>
                     </div>
                 </a>
                 <div id="collapse<?= $value["cod"] ?>" class="collapse" role="tabpanel"
@@ -134,11 +131,10 @@ if (empty($pedidosArrayAgrupados)) {
                                 </table>
                             </div>
                         </div>
-                        <hr>
+                        <br>
                         <span style="font-size:16px">
-                    <b class="mb-10">FORMA DE PAGO</b>
+                    <b class="mb-10">FORMA DE PAGO:</b>
                         <br class="visible-xs">
-                    <span class="alert-info" style="border-radius: 10px; padding: 10px;">
                         <?php if ($value["tipo"] == 0): ?>
                             Transferencia bancaria
                         <?php elseif ($value["tipo"] == 1): ?>
@@ -146,7 +142,6 @@ if (empty($pedidosArrayAgrupados)) {
                         <?php elseif ($value["tipo"] == 2): ?>
                             Tarjeta de crédito o débito
                         <?php endif; ?>
-                    </span>
                 </span>
                     </div>
                 </div>

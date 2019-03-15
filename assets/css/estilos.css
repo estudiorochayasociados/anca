@@ -59,3 +59,29 @@
 .hidden {
     display: none
 }
+
+.card-headerNew{
+    padding: 10px !important;
+}
+.boton{
+    padding:5px;
+    font-size:13px;
+}
+.boton-mobile{
+    padding:5px;
+    font-size:13px;
+    width: 100%;
+    text-align: center;
+}
+.metodos{
+    padding: 6px;
+}
+.fondo{
+    background-color: #eeee;
+}
+.derecha{
+    text-align: right;
+}
+.fondo-nav{
+    background: #F2F2F2;
+}

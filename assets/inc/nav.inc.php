@@ -67,8 +67,8 @@ if (!empty($banner_data_botonera)) {
                             <a href="#">Cuenta<i class="lnr lnr-chevron-down"></i></a>
                             <!-- Dropdown Start -->
                             <ul class="ht-dropdown">
-                                <li><a href="<?= URL ?>/ingreso">Ingresar</a></li>
-                                <li><a href="<?= URL ?>/registro">Registrar</a></li>
+                                <li><a href="<?= URL ?>/ingreso">Inicio sesión</a></li>
+                                <li><a href="<?= URL ?>/registro">Registrar Usuario</a></li>
                             </ul>
                             <!-- Dropdown End -->
                         </li>
@@ -189,7 +189,7 @@ if (!empty($banner_data_botonera)) {
     </div>
     <!-- Header Middle End Here -->
     <!-- Header Bottom Start Here -->
-    <div class="header-bottom  header-sticky">
+    <div class="header-bottom  header-sticky fondo-nav">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-xl-9 col-lg-8 col-md-12 ">
@@ -214,26 +214,14 @@ if (!empty($banner_data_botonera)) {
                                 <?php
                                 if (!empty($_SESSION['usuarios'])) {
                                     ?>
-                                    <li><a>Mi cuenta</a>
-                                        <!-- Home Version Dropdown Start -->
-                                        <ul>
-                                            <li><a href="<?= URL ?>/sesion/cuenta">Perfil</a></li>
-                                            <li><a href="<?= URL ?>/sesion/pedidos">Pedidos</a></li>
-                                            <li><a href="<?= URL ?>?logout">Salir</a></li>
-                                        </ul>
-                                        <!-- Home Version Dropdown End -->
-                                    </li>
+                                    <li><a href="<?= URL ?>/sesion/cuenta">Perfil</a></li>
+                                    <li><a href="<?= URL ?>/sesion/pedidos">Pedidos</a></li>
+                                    <li><a href="<?= URL ?>?logout">Salir</a></li>
                                     <?php
                                 } else {
                                     ?>
-                                    <li><a>Cuenta</a>
-                                        <!-- Mobile Menu Dropdown Start -->
-                                        <ul>
-                                            <li><a href="<?= URL ?>/ingreso">Ingresar</a></li>
-                                            <li><a href="<?= URL ?>/registro">Registrar</a></li>
-                                        </ul>
-                                        <!-- Mobile Menu Dropdown End -->
-                                    </li>
+                                    <li><a href="<?= URL ?>/ingreso">Inicio sesión</a></li>
+                                    <li><a href="<?= URL ?>/registro">Registrar Usuario</a></li>
                                     <?php
                                 }
                                 ?>

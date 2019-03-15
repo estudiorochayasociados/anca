@@ -67,7 +67,7 @@ $fecha = gmdate("Y-m-j H:i:s", time() + 3600 * ($timezone + date("I")));
             $pedidos->set("cod", $cod_pedido);
             $pedidos->set("estado", $pago["defecto"]);
             $pedidos->cambiar_estado();
-            $funciones->headerMove(URL . "/compra-finalizada.php");
+            $funciones->headerMove(URL . "/compra-finalizada");
             break;
         case 1:
             include("vendor/mercadopago/sdk/lib/mercadopago.php");

@@ -173,7 +173,7 @@ if (count($carro) == 0) {
                     <!-- Table Content Start -->
                     <div class="row mb-10">
                         <!-- Cart Button Start -->
-                        <div class="col-md-8 col-sm-12" <?php if ($carroEnvio!=''){echo "style='background-color: #f8f8f8;'"; } ?>>
+                        <div class="col-md-8 col-sm-12 <?php if ($carroEnvio!=''){echo "fondo"; } ?>">
                             <form class="" method="post">
                                 <!---->
                                 <?php
@@ -211,7 +211,7 @@ if (count($carro) == 0) {
                                     <?php
                                     if ($carroEnvio != '') {
                                         ?>
-                                        <h4>Metodos de pago</h4>
+                                        <h4 class="metodos">Metodos de pago</h4>
                                         <?php
                                     } elseif ($carroEnvio == '') {
                                         ?>
@@ -240,7 +240,7 @@ if (count($carro) == 0) {
                                                             }
                                                         }
                                                         ?>
-                                                        <div class="radioButtonPay mb-10">
+                                                        <div class="radioButtonPay mb-10 metodos">
                                                             <input type="radio"
                                                                    id="<?= ($pago["cod"]) ?>"
                                                                    name="metodos-pago"

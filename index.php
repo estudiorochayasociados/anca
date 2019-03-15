@@ -9,7 +9,6 @@ $categoria = new Clases\Categorias();
 $producto = new Clases\Productos();
 $novedad = new Clases\Novedades();
 $slider = new Clases\Sliders();
-//
 ////Datos
 ///Productos
 $productos_datalast = $producto->listWithOps('', '', 10);
@@ -49,22 +48,27 @@ $template->themeInit();
 if (!empty($sliders_data)) {
     ?>
     <!-- Categorie Menu & Slider Area Start Here -->
-    <div class="main-page-banner pb-50 off-white-bg home-3">
+    <div class="main-page-banner pb-50 off-white-bg home-3 hidden-xs">
         <div id="carE" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <?php
-                $activo=0;
+                $activo = 0;
                 foreach ($sliders_data as $sli) {
                     ?>
-                    <div class="carousel-item <?php if ($activo == 0) { echo 'active'; $activo++; } ?>">
-                        <img class="d-block w-100" src="<?= URL . '/' . $sli['imagenes']['0']['ruta']; ?>" alt="<?= $sli['data']['titulo']; ?>">
+                    <div class="carousel-item <?php if ($activo == 0) {
+                        echo 'active';
+                        $activo++;
+                    } ?>">
+                        <div style="height:400px;width:100%;background:url(<?= URL . '/' . $sli['imagenes']['0']['ruta']; ?>) no-repeat center center/cover;">
+
+                        </div>
                     </div>
                     <?php
                 }
                 ?>
             </div>
             <?php
-            if (@count($sliders_data > 1)) {
+            if (@count($sliders_data) > 1) {
                 ?>
                 <a class="carousel-control-prev" href="#carE" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -296,7 +300,7 @@ if (!empty($novedades_datalast)) {
 
                             </a>
                             <div class="blog-img">
-                                <a href="<?= URL . '/blog/' . $funciones->normalizar_link($nov['data']["titulo"]) . '/' . $nov['data']['cod'] ?>"><img height="200" width="200" src="<?= $nov['imagenes']['0']['ruta']; ?>" alt="<?=$nov['data']["titulo"]?>;"></a>
+                                <a href="<?= URL . '/blog/' . $funciones->normalizar_link($nov['data']["titulo"]) . '/' . $nov['data']['cod'] ?>"><img height="200" width="200" src="<?= $nov['imagenes']['0']['ruta']; ?>" alt="<?= $nov['data']["titulo"] ?>;"></a>
                             </div>
                             <div class="blog-desc">
                                 <h4>
