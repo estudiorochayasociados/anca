@@ -7,7 +7,7 @@ $funciones = new Clases\PublicFunction();
 $usuario = new Clases\Usuarios();
 //
 $template->set("title", TITULO . " | Ingreso");
-$template->set("description", "");
+$template->set("description", "Ingreso de usuario en ".TITULO);
 $template->set("keywords", "");
 $template->set("favicon", FAVICON);
 $template->themeInit();

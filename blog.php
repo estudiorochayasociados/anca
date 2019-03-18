@@ -84,7 +84,7 @@ $template->themeInit();
                         }
                         ?>
                     </div>
-                    <div class="sidebar-desc mb-50">
+                    <div class="sidebar-desc mb-50 mt-15">
                         <p>
                             <?= ucfirst($novedades_data['desarrollo']); ?>
                         </p>

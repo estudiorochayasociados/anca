@@ -36,15 +36,19 @@ foreach ($categorias_sliders as $catS) {
         $slider->set("categoria", $catS['cod']);
         $sliders_data = $slider->listForCategory();
     }
+    if ($catS['titulo'] == "Mobile") {
+        $slider->set("categoria", $catS['cod']);
+        $slidersm_data = $slider->listForCategory();
+    }
 }
 ///
 //
 $template->set("title", TITULO . " | Inicio");
-$template->set("description", "");
+$template->set("description", "Página principal de".TITULO);
 $template->set("keywords", "");
 $template->set("favicon", FAVICON);
 $template->themeInit();
-
+//Slider Principal
 if (!empty($sliders_data)) {
     ?>
     <!-- Categorie Menu & Slider Area Start Here -->
@@ -75,6 +79,48 @@ if (!empty($sliders_data)) {
                     <span class="sr-only">Anterior</span>
                 </a>
                 <a class="carousel-control-next" href="#carE" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Siguiente</span>
+                </a>
+                <?php
+            }
+            ?>
+        </div>
+    </div>
+    <!-- Categorie Menu & Slider Area End Here -->
+    <?php
+}
+//Slider Mobile
+if (!empty($slidersm_data)) {
+    ?>
+    <!-- Categorie Menu & Slider Area Start Here -->
+    <div class="main-page-banner pb-50 off-white-bg home-3 visible-xs">
+        <div id="carM" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <?php
+                $activo = 0;
+                foreach ($slidersm_data as $sli) {
+                    ?>
+                    <div class="carousel-item <?php if ($activo == 0) {
+                        echo 'active';
+                        $activo++;
+                    } ?>">
+                        <div style="height:300px;width:100%;background:url(<?= URL . '/' . $sli['imagenes']['0']['ruta']; ?>) no-repeat center center/cover;">
+
+                        </div>
+                    </div>
+                    <?php
+                }
+                ?>
+            </div>
+            <?php
+            if (@count($slidersm_data) > 1) {
+                ?>
+                <a class="carousel-control-prev" href="#carM" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Anterior</span>
+                </a>
+                <a class="carousel-control-next" href="#carM" role="button" data-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">Siguiente</span>
                 </a>
@@ -128,7 +174,7 @@ if (!empty($productos_datalast)) {
                                 <!-- Product Image End -->
                                 <!-- Product Content Start -->
                                 <div class="pro-content">
-                                    <div class="pro-info">
+                                    <div class="pro-info centro">
                                         <h4>
                                             <a href="<?= URL . '/producto/' . $funciones->normalizar_link($prod['data']["titulo"]) . '/' . $prod['data']['cod'] ?>">
                                                 <?= ucfirst(substr(strip_tags($prod['data']['titulo']), 0, 40)); ?>
@@ -198,7 +244,7 @@ if (!empty($productos_datarand)) {
                                 <!-- Product Image End -->
                                 <!-- Product Content Start -->
                                 <div class="pro-content">
-                                    <div class="pro-info">
+                                    <div class="pro-info centro">
                                         <h4>
                                             <a href="<?= URL . '/producto/' . $funciones->normalizar_link($prod['data']["titulo"]) . '/' . $prod['data']['cod'] ?>">
                                                 <?= ucfirst(substr(strip_tags($prod['data']['titulo']), 0, 40)); ?>
@@ -300,7 +346,11 @@ if (!empty($novedades_datalast)) {
 
                             </a>
                             <div class="blog-img">
-                                <a href="<?= URL . '/blog/' . $funciones->normalizar_link($nov['data']["titulo"]) . '/' . $nov['data']['cod'] ?>"><img height="200" width="200" src="<?= $nov['imagenes']['0']['ruta']; ?>" alt="<?= $nov['data']["titulo"] ?>;"></a>
+                                <a href="<?= URL . '/blog/' . $funciones->normalizar_link($nov['data']["titulo"]) . '/' . $nov['data']['cod'] ?>">
+                                    <div style="height:200px;background:url(<?= $nov['imagenes']['0']['ruta']; ?>) no-repeat center center/cover;">
+
+                                    </div>
+                                </a>
                             </div>
                             <div class="blog-desc">
                                 <h4>

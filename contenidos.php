@@ -9,7 +9,7 @@ $contenido->set("cod", $id);
 $contenido_data = $contenido->view();
 $template->set("title", TITULO . " | ".ucfirst(strip_tags($contenido_data['cod'])));
 $template->set("description", ucfirst(substr(strip_tags($contenido_data['contenido']), 0, 160)));
-$template->set("keywords", TITULO . " | Empresa");
+$template->set("keywords", "");
 $template->set("favicon", FAVICON);
 $template->themeInit();
 ?>

@@ -113,7 +113,9 @@ $numeroPaginas = $novedades->paginador("", $cantidad);
                             <div class="single-latest-blog">
                                 <div class="blog-img">
                                     <a href="<?= URL . '/blog/' . $funciones->normalizar_link($nov['data']["titulo"]) . '/' . $nov['data']['cod'] ?>">
-                                        <img height="200" src="<?=URL.'/'. $nov['imagenes']['0']['ruta']; ?>" alt="<?=$nov['data']["titulo"];?>">
+                                        <div style="height:200px;background:url(<?= $nov['imagenes']['0']['ruta']; ?>) no-repeat center center/cover;">
+
+                                        </div>
                                     </a>
                                 </div>
                                 <div class="blog-desc">
@@ -122,7 +124,7 @@ $numeroPaginas = $novedades->paginador("", $cantidad);
                                             <?= ucfirst($nov['data']['titulo']); ?>
                                         </a>
                                     </h4>
-                                    <p><?= ucfirst(substr(strip_tags($nov['data']['titulo']), 0, 60)); ?>...</p>
+                                    <p><?= ucfirst(substr(strip_tags($nov['data']['desarrollo']), 0, 150)); ?>...</p>
                                     <a class="readmore" href="<?= URL . '/blog/' . $funciones->normalizar_link($nov['data']["titulo"]) . '/' . $nov['data']['cod'] ?>">
                                         Ver
                                     </a>

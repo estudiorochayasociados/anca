@@ -125,18 +125,16 @@ $template->themeInit();
         <!-- Container End -->
     </div>
     <!-- Breadcrumb End -->
-    <!-- Shop Page Start -->
-    <div class="main-shop-page pt-15 pb-100">
-        <div class="container">
-            <!-- Row End -->
-            <div class="row">
+    <div class="container pt-15 pb-100">
+        <div class="row">
+            <div class="col-md-3">
                 <!-- Sidebar Shopping Option Start -->
-                <div class="col-lg-3 order-2 order-lg-1">
+                <div class="order-1 order-lg-1 hidden-xs">
                     <div class="sidebar">
-                        <div class="sidebar-categorie mb-40">
+                        <div class="sidebar-categorie mb-40 ">
                             <form method="get" action="<?= URL . '/productos' ?>">
                                 <?php $funciones->variables_get_input("categoria"); ?>
-                                <h3 class="sidebar-title">Categorias</h3>
+                                <h3 class="sidebar-title">Categorías</h3>
                                 <ul class="sidbar-style">
                                     <?php
                                     foreach ($categorias_data as $cat) {
@@ -159,7 +157,7 @@ $template->themeInit();
                             foreach ($banner_data_cuadrado as $banC) {
                                 ?>
                                 <!-- Single Banner Start -->
-                                <div class="col-img" style="height:300px;background:url(<?= $banC['imagenes']['0']['ruta']; ?>) no-repeat center center/cover;">
+                                <div class="col-img hidden-xs" style="height:300px;background:url(<?= $banC['imagenes']['0']['ruta']; ?>) no-repeat center center/cover;">
                                 </div>
                                 <!-- Single Banner End -->
                                 <?php
@@ -169,149 +167,156 @@ $template->themeInit();
                     </div>
                 </div>
                 <!-- Sidebar Shopping Option End -->
-                <!-- Product Categorie List Start -->
-                <div class="col-lg-9 order-1 order-lg-2">
-                    <!-- Grid & List View Start -->
-                    <div class="container">
-                        <div class="grid-list-top border-default universal-padding d-md-flex justify-content-md-between align-items-center mb-30">
-                            <div class="grid-list-view  mb-sm-15">
-                                <div class="categorie-search-box">
-                                    <form method="get" id="buscar">
-                                        <?php $funciones->variables_get_input("buscar"); ?>
-                                        <input type="text" name="buscar" value="<?= isset($titulo) ? $titulo : ''; ?>" placeholder="Buscar un producto">
-                                        <button type="submit"><i class="lnr lnr-magnifier"></i></button>
-                                    </form>
-                                </div>
-                            </div>
-                            <!-- Toolbar Short Area Start -->
-                            <div class="main-toolbar-sorter clearfix">
-                                <div class="toolbar-sorter d-flex align-items-center">
-                                    <form method="get">
-                                        <?php $funciones->variables_get_input("order"); ?>
-                                        <select name="order" onchange="this.form.submit()" class="form-control h40 sorter wide">
-                                            <option value="ultimos" <?php if ($orden_pagina == "ultimos") {
-                                                echo "selected";
-                                            } ?>>Últimos
-                                            </option>
-                                            <option value="menor" <?php if ($orden_pagina == "menor") {
-                                                echo "selected";
-                                            } ?>>Menor a Mayor
-                                            </option>
-                                            <option value="mayor" <?php if ($orden_pagina == "mayor") {
-                                                echo "selected";
-                                            } ?>>Mayor a Menor
-                                            </option>
-                                        </select>
-                                    </form>
-                                </div>
-                            </div>
-                            <!-- Toolbar Short Area End -->
+            </div>
+            <div class="col-md-9">
+                <div class="grid-list-top border-default universal-padding d-md-flex justify-content-md-between align-items-center mb-30">
+                    <div class="grid-list-view  mb-sm-15">
+                        <div class="categorie-search-box">
+                            <form method="get" id="buscar">
+                                <?php $funciones->variables_get_input("buscar"); ?>
+                                <input type="text" name="buscar" value="<?= isset($titulo) ? $titulo : ''; ?>" placeholder="Buscar un producto">
+                                <button type="submit"><i class="lnr lnr-magnifier"></i></button>
+                            </form>
                         </div>
                     </div>
-                    <!-- Grid & List View End -->
-                    <div class="main-categorie mb-all-40">
-                        <!-- Grid & List Main Area End -->
-                        <div class="tab-content fix">
-                            <div id="grid-view" class="tab-pane fade show active">
-                                <div class="row">
+                    <div class="main-toolbar-sorter clearfix visible-xs">
+                        <form method="get" action="<?= URL . '/productos' ?>">
+                            <div class="toolbar-sorter d-flex align-items-center">
+                                <?php $funciones->variables_get_input("categoria"); ?>
+                                <label>Categoría:</label>
+                                <select name="categoria" onchange="this.form.submit()" class="form-control h40 sorter wide font-select">
                                     <?php
-                                    foreach ($productos_data as $prod) {
+                                    foreach ($categorias_data as $cat) {
                                         ?>
-                                        <!-- Single Product Start -->
-                                        <div class="col-lg-4 col-md-4 col-sm-6 col-6">
-                                            <!-- Single Product Start -->
-                                            <div class="single-product">
-                                                <!-- Product Image Start -->
-                                                <a href="<?= URL . '/producto/' . $funciones->normalizar_link($prod['data']["titulo"]) . '/' . $prod['data']['cod'] ?>">
-                                                    <div class="pro-img" style="height:300px;background:url(<?= $prod['imagenes']['0']['ruta']; ?>) no-repeat center center/70%;">
-                                                    </div>
-                                                </a>
-                                                <!-- Product Image End -->
-                                                <!-- Product Content Start -->
-                                                <div class="pro-content">
-                                                    <div class="pro-info">
-                                                        <h4>
-                                                            <a href="<?= URL . '/producto/' . $funciones->normalizar_link($prod['data']["titulo"]) . '/' . $prod['data']['cod'] ?>">
-                                                                <?= ucfirst(substr(strip_tags($prod['data']['titulo']), 0, 40)); ?>
-                                                            </a>
-                                                        </h4>
-                                                        <p style="text-align: center;">
-                                                            <?php
-                                                            if ($prod['data']['precio_descuento'] > 0) {
-                                                                ?>
-                                                                <span class="price">$ <?= $prod['data']['precio_descuento'] ?></span>
-                                                                <del class="prev-price">$ <?= $prod['data']['precio'] ?></del>
-                                                                <?php
-                                                            } else {
-                                                                ?>
-                                                                <span class="price">$ <?= $prod['data']['precio'] ?></span>
-                                                                <?php
-                                                            }
-                                                            ?>
-                                                        </p>
-                                                    </div>
-                                                    <div class="pro-actions">
-                                                        <div class="actions-primary">
-                                                            <a href="<?= URL . '/producto/' . $funciones->normalizar_link($prod['data']["titulo"]) . '/' . $prod['data']['cod'] ?>" title="Ver">
-                                                                Ver
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- Product Content End -->
-                                            </div>
-                                            <!-- Single Product End -->
-                                        </div>
-                                        <!-- Single Product End -->
+                                        <option value="<?= $cat['cod']; ?>" <?php if ($categoria_get == $cat['cod']) {
+                                            echo "selected";
+                                        } ?>><?= ucfirst($cat['titulo']); ?>
+                                        </option>
                                         <?php
                                     }
                                     ?>
-                                </div>
-                                <!-- Row End -->
+                                </select>
                             </div>
-                            <div class="pro-pagination">
-                                <ul class="blog-pagination">
-                                    <?php
-                                    if (!empty($numeroPaginas)) {
-                                        if ($numeroPaginas != 1 && $numeroPaginas != 0) {
-                                            $url_final = $funciones->eliminar_get(CANONICAL, "pagina");
-                                            $links = '';
-                                            $links .= "<li><a class='page-numbers' href='" . $url_final . $anidador . "pagina=1'>1</a></li>";
-                                            $i = max(2, $pagina - 5);
+                        </form>
+                    </div>
+                    <!-- Toolbar Short Area Start -->
+                    <div class="main-toolbar-sorter clearfix">
+                        <form method="get">
+                            <div class="toolbar-sorter d-flex align-items-center">
+                                <label>Ordenar:</label>
+                                <?php $funciones->variables_get_input("order"); ?>
+                                <select name="order" onchange="this.form.submit()" class="form-control h40 sorter wide font-select">
+                                    <option value="ultimos" <?php if ($orden_pagina == "ultimos") {
+                                        echo "selected";
+                                    } ?>>Últimos
+                                    </option>
+                                    <option value="menor" <?php if ($orden_pagina == "menor") {
+                                        echo "selected";
+                                    } ?>>Menor a Mayor
+                                    </option>
+                                    <option value="mayor" <?php if ($orden_pagina == "mayor") {
+                                        echo "selected";
+                                    } ?>>Mayor a Menor
+                                    </option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
 
-                                            if ($i > 2) {
-                                                $links .= "<li><a class='page-numbers' href='#'>...</a></li>";
+                    <!-- Toolbar Short Area End -->
+                </div>
+                <div class="row">
+                    <?php
+                    foreach ($productos_data as $prod) {
+                        ?>
+                        <!-- Single Product Start -->
+                        <div class="col-md-4 col-6">
+                            <!-- Single Product Start -->
+                            <div class="single-product borde">
+                                <!-- Product Image Start -->
+                                <a href="<?= URL . '/producto/' . $funciones->normalizar_link($prod['data']["titulo"]) . '/' . $prod['data']['cod'] ?>">
+                                    <div class="pro-img" style="height:200px;background:url(<?= $prod['imagenes']['0']['ruta']; ?>) no-repeat center center/contain;">
+                                    </div>
+                                </a>
+                                <!-- Product Image End -->
+                                <!-- Product Content Start -->
+                                <div class="pro-content">
+                                    <div class="pro-info centro">
+                                        <h4>
+                                            <a href="<?= URL . '/producto/' . $funciones->normalizar_link($prod['data']["titulo"]) . '/' . $prod['data']['cod'] ?>">
+                                                <?= ucfirst($prod['data']['titulo']); ?>
+                                            </a>
+                                        </h4>
+                                        <p>
+                                            <?php
+                                            if ($prod['data']['precio_descuento'] > 0) {
+                                                ?>
+                                                <span class="price">$ <?= $prod['data']['precio_descuento'] ?></span>
+                                                <del class="prev-price">$ <?= $prod['data']['precio'] ?></del>
+                                                <?php
+                                            } else {
+                                                ?>
+                                                <span class="price">$ <?= $prod['data']['precio'] ?></span>
+                                                <?php
                                             }
-                                            for (; $i <= min($pagina + 6, $numeroPaginas); $i++) {
-                                                if ($pagina + 1 == $i) {
-                                                    $current = "active";
-                                                } else {
-                                                    $current = "";
-                                                }
-                                                $links .= "<li class='$current'><a class='page-numbers' href='" . $url_final . $anidador . "pagina=" . $i . "'>" . $i . "</a></li>";
-                                            }
-                                            if ($i - 1 != $numeroPaginas) {
-                                                $links .= "<li><a class='page-numbers' href='#'>...</a></li>";
-                                                $links .= "<li><a class='page-numbers' href='" . $url_final . $anidador . "pagina=" . $numeroPaginas . "'>" . $numeroPaginas . "</a></li>";
-                                            }
-                                            echo $links;
-                                            echo "";
-                                        }
-                                    }
-                                    ?>
-                                </ul>
+                                            ?>
+                                        </p>
+                                    </div>
+                                    <div class="pro-actions">
+                                        <div class="actions-primary">
+                                            <a href="<?= URL . '/producto/' . $funciones->normalizar_link($prod['data']["titulo"]) . '/' . $prod['data']['cod'] ?>" title="Ver">
+                                                Ver
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Product Content End -->
                             </div>
-                            <!-- Product Pagination Info -->
+                            <!-- Single Product End -->
                         </div>
-                        <!-- Grid & List Main Area End -->
+                        <!-- Single Product End -->
+                        <?php
+                    }
+                    ?>
+                </div>
+                <div class="container mb-10">
+                    <div class="row">
+                        <div class="pro-pagination">
+                            <ul class="blog-pagination">
+                                <?php
+                                if (!empty($numeroPaginas)) {
+                                    if ($numeroPaginas != 1 && $numeroPaginas != 0) {
+                                        $url_final = $funciones->eliminar_get(CANONICAL, "pagina");
+                                        $links = '';
+                                        $links .= "<li><a class='page-numbers' href='" . $url_final . $anidador . "pagina=1'>1</a></li>";
+                                        $i = max(2, $pagina - 5);
+
+                                        if ($i > 2) {
+                                            $links .= "<li><a class='page-numbers' href='#'>...</a></li>";
+                                        }
+                                        for (; $i <= min($pagina + 6, $numeroPaginas); $i++) {
+                                            if ($pagina + 1 == $i) {
+                                                $current = "active";
+                                            } else {
+                                                $current = "";
+                                            }
+                                            $links .= "<li class='$current'><a class='page-numbers' href='" . $url_final . $anidador . "pagina=" . $i . "'>" . $i . "</a></li>";
+                                        }
+                                        if ($i - 1 != $numeroPaginas) {
+                                            $links .= "<li><a class='page-numbers' href='#'>...</a></li>";
+                                            $links .= "<li><a class='page-numbers' href='" . $url_final . $anidador . "pagina=" . $numeroPaginas . "'>" . $numeroPaginas . "</a></li>";
+                                        }
+                                        echo $links;
+                                        echo "";
+                                    }
+                                }
+                                ?>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <!-- product Categorie List End -->
             </div>
-            <!-- Row End -->
         </div>
-        <!-- Container End -->
     </div>
-    <!-- Shop Page End -->
 <?php
 $template->themeEnd(); ?>

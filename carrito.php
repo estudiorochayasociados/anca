@@ -19,7 +19,7 @@ $pagos = new Clases\Pagos();
 $carro = $carrito->return();
 $carroEnvio = $carrito->checkEnvio();
 if (count($carro) == 0) {
-    $funciones->headerMove(URL . "/productos.php");
+    $funciones->headerMove(URL . "/productos");
 }
 ?>
     <!-- Breadcrumb Start -->

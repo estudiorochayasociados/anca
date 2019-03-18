@@ -8,7 +8,7 @@ $usuario = new Clases\Usuarios();
 $enviar = new Clases\Email();
 //
 $template->set("title", TITULO . " | Registro");
-$template->set("description", "");
+$template->set("description", "Registro de usuario en".TITULO);
 $template->set("keywords", "");
 $template->set("favicon", FAVICON);
 $template->themeInit();

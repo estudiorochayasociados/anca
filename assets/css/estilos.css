@@ -85,3 +85,13 @@
 .fondo-nav{
     background: #F2F2F2;
 }
+.borde{
+    border: 1px solid #ededed;
+    border-radius: 3px;
+}
+.font-select{
+    font-size: 13px !important;
+}
+.centro{
+    text-align: center !important;
+}

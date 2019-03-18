@@ -20,7 +20,7 @@ foreach ($categorias_banners as $catB) {
 }
 ?>
 <?php
-if (!empty($banner_data_botonera)) {
+if (!empty($banner_data_botonera)&&CANONICAL==URL.'/index') {
     foreach ($banner_data_botonera as $banB) {
         ?>
         <!-- Banner Popup Start -->

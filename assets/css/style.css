@@ -1258,7 +1258,6 @@ li.megamenu-img a {
     overflow: hidden;
     padding: 0;
     text-overflow: ellipsis;
-    white-space: nowrap;
 }
 
 .pro-content h4 a:hover {
@@ -1277,7 +1276,7 @@ li.megamenu-img a {
 .price {
   color: #363636;
   font-family: "Lato",sans-serif;
-  font-size: 21px;
+  font-size: 17px;
   font-weight: 700;
   line-height: 20px;
 }
@@ -1798,7 +1797,7 @@ li.megamenu-img a {
   width: 50%;
 }
 .pro-content h4 a {
-  font-size: 18px;
+  font-size: 14px;
 }
 .banner-site-box .l_sale {
   margin-top: 5px;
@@ -2128,7 +2127,6 @@ li.megamenu-img a {
   line-height: 1;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
 }
 .blog-desc h4 a:hover,
 .blog-desc li a:hover {
