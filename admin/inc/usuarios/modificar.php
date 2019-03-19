@@ -34,55 +34,55 @@ if (isset($_POST["agregar"])) {
     <form method="post" class="row">
         <label class="col-md-4">
             Nombre:<br/>
-            <input type="text" name="nombre" value="<?=$usuario['nombre'];?>" />
+            <input type="text" name="nombre" value="<?=$usuario['nombre'];?>" required />
         </label>
         <label class="col-md-4">
             Apellido:<br/>
-            <input type="text" name="apellido" value="<?=$usuario['apellido'];?>" />
+            <input type="text" name="apellido" value="<?=$usuario['apellido'];?>" required />
         </label>
         <label class="col-md-4">
             DNI/CUIT/CUIL:<Br/>
-            <input type="text" name="doc" value="<?=$usuario['doc'];?>" />
+            <input type="text" name="doc" value="<?=$usuario['doc'];?>" required />
         </label>
         <label class="col-md-4">
             Email:<br/>
-            <input type="text" name="email" value="<?=$usuario['email'];?>" />
+            <input type="text" name="email" value="<?=$usuario['email'];?>" required />
         </label>
         <label class="col-md-4">
             Password:<br/>
-            <input type="password" class="form-control" name="password" value="<?=$usuario['password'];?>" />
+            <input type="password" class="form-control" name="password" value="<?=$usuario['password'];?>" required />
         </label>
         <label class="col-md-4">
             Postal:<br/>
-            <input type="text" name="postal" value="<?=$usuario['postal'];?>" />
+            <input type="text" name="postal" value="<?=$usuario['postal'];?>" required />
         </label>
         <label class="col-md-4">
             Localidad:<br/>
-            <input type="text" name="localidad" value="<?=$usuario['localidad'];?>" />
+            <input type="text" name="localidad" value="<?=$usuario['localidad'];?>" required />
         </label>
         <label class="col-md-4">
             Provincia:<br/>
-            <input type="text" name="provincia" value="<?=$usuario['provincia'];?>" />
+            <input type="text" name="provincia" value="<?=$usuario['provincia'];?>" required />
         </label>
         <label class="col-md-4">
             Pais:<Br/>
-            <input type="text" name="pais" value="<?=$usuario['pais'];?>" />
+            <input type="text" name="pais" value="<?=$usuario['pais'];?>" required />
         </label>
         <label class="col-md-4">
             Telefono:<br/>
-            <input type="text" name="telefono" value="<?=$usuario['telefono'];?>" />
+            <input type="text" name="telefono" value="<?=$usuario['telefono'];?>"  />
         </label>
         <label class="col-md-4">
             Celular:<br/>
-            <input type="text" name="celular" value="<?=$usuario['celular'];?>" />
+            <input type="text" name="celular" value="<?=$usuario['celular'];?>" required />
         </label>
         <label class="col-md-2">
             Invitado (1 Si, 0 No):<br/>
-            <input type="number" min="0" max="1" name="invitado" value="<?=$usuario['invitado'];?>" />
+            <input type="number" min="0" max="1" name="invitado" value="<?=$usuario['invitado'];?>" required />
         </label>
         <label class="col-md-2">
             Tipo (1 Mayorista, 0 Minorista):<br/>
-            <input type="number" min="0" max="1" name="descuento" value="<?=$usuario['descuento'];?>" />
+            <input type="number" min="0" max="1" name="descuento" value="<?=$usuario['descuento'];?>" required />
         </label>
         <div class="clearfix"></div><br/>
         <div class="col-md-12">

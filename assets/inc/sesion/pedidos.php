@@ -16,7 +16,9 @@ asort($pedidosArraySinAgrupar);
 <?php
 if (empty($pedidosArrayAgrupados)) {
     ?>
-    <h4>No hay pedidos todavía.</h4>
+    <div class="container centro">
+        <h4>No hay pedidos todavía.</h4>
+    </div>
     <?php
 } else {
     ?>

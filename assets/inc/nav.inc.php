@@ -20,15 +20,17 @@ foreach ($categorias_banners as $catB) {
 }
 ?>
 <?php
-if (!empty($banner_data_botonera)&&CANONICAL==URL.'/index') {
+if (!empty($banner_data_botonera) && CANONICAL == URL . '/index') {
     foreach ($banner_data_botonera as $banB) {
         ?>
         <!-- Banner Popup Start -->
         <div class="popup_banner" id="banner">
             <span class="popup_off_banner" onclick="$(this).parent().hide();">×</span>
-            <div class="banner_popup_area">
-                <img src="<?= URL . '/' . $banB['imagenes'][0]['ruta']; ?>" alt="<?= $banB['data']['nombre']; ?>">
-            </div>
+            <a href="<?= $banB['data']['link'] ?>">
+                <div class="banner_popup_area">
+                    <img src="<?= URL . '/' . $banB['imagenes'][0]['ruta']; ?>" alt="<?= $banB['data']['nombre']; ?>">
+                </div>
+            </a>
         </div>
         <!-- Banner Popup End -->
         <?php
@@ -67,7 +69,7 @@ if (!empty($banner_data_botonera)&&CANONICAL==URL.'/index') {
                             <a href="#">Cuenta<i class="lnr lnr-chevron-down"></i></a>
                             <!-- Dropdown Start -->
                             <ul class="ht-dropdown">
-                                <li><a href="<?= URL ?>/ingreso">Inicio sesión</a></li>
+                                <li><a href="<?= URL ?>/ingreso">Iniciar sesión</a></li>
                                 <li><a href="<?= URL ?>/registro">Registrar Usuario</a></li>
                             </ul>
                             <!-- Dropdown End -->
@@ -88,7 +90,7 @@ if (!empty($banner_data_botonera)&&CANONICAL==URL.'/index') {
             <div class="row align-items-center no-gutters">
                 <div class="col-lg-3 col-md-12">
                     <div class="logo mb-all-30">
-                        <a href="<?=URL?>/index"><img src="<?= URL ?>/assets/img/logo/logo.png" alt="logo-image"></a>
+                        <a href="<?= URL ?>/index"><img src="<?= URL ?>/assets/img/logo/logo.png" alt="logo-image"></a>
                     </div>
                 </div>
                 <!-- Categorie Search Box Start Here -->
@@ -106,7 +108,7 @@ if (!empty($banner_data_botonera)&&CANONICAL==URL.'/index') {
                     <div class="cart-box mt-all-30">
                         <ul class="d-flex justify-content-lg-end justify-content-center align-items-center">
                             <li>
-                                <a href="<?=URL?>/carrito"><i class="lnr lnr-cart"></i>
+                                <a href="<?= URL ?>/carrito"><i class="lnr lnr-cart"></i>
                                     <span class="my-cart">
                                         <?php if (!empty($_SESSION['carrito'])) {
                                             echo '<span class="total-pro">' . @count($_SESSION['carrito']) . '</span>';
@@ -220,7 +222,7 @@ if (!empty($banner_data_botonera)&&CANONICAL==URL.'/index') {
                                     <?php
                                 } else {
                                     ?>
-                                    <li><a href="<?= URL ?>/ingreso">Inicio sesión</a></li>
+                                    <li><a href="<?= URL ?>/ingreso">Iniciar sesión</a></li>
                                     <li><a href="<?= URL ?>/registro">Registrar Usuario</a></li>
                                     <?php
                                 }
@@ -236,4 +238,3 @@ if (!empty($banner_data_botonera)&&CANONICAL==URL.'/index') {
         <!-- Container End -->
     </div>
 </header>
-<!-- Main Header Area End Here -->

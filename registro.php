@@ -27,7 +27,7 @@ $template->themeInit();
 </div>
 <!-- Breadcrumb End -->
 <!-- Register Account Start -->
-<div class="register-account ptb-100 ptb-sm-60">
+<div class="register-account  mt-15 mb-10">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
@@ -181,8 +181,9 @@ $template->themeInit();
                     </fieldset>
                     <div class="terms">
                         <div class="float-md-right">
+                            <!--
                             <span>I have read and agree to the <a href="#" class="agree"><b>Privacy Policy</b></a></span>
-                            <input type="checkbox" name="agree" value="1"> &nbsp;
+                            <input type="checkbox" name="agree" value="1"> &nbsp;-->
                             <button type="submit" name="registrar" class="return-customer-btn">Registrar</button>
                         </div>
                     </div>

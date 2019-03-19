@@ -106,8 +106,8 @@ $url_limpia = str_replace("?error", "", $url_limpia);
                                     <?php
                                     if ($producto_data['data']['precio_descuento'] > 0) {
                                         ?>
-                                        <span class="prev-price"><?= $producto_data['data']['precio_descuento'] ?></span>
-                                        <span class="price">$<?= $producto_data['data']['precio'] ?></span>
+                                        <span class="price">$<?= $producto_data['data']['precio_descuento'] ?></span>
+                                        <span class="prev-price">$<?= $producto_data['data']['precio'] ?></span>
                                         <?php
                                     } else {
                                         ?>
@@ -150,17 +150,17 @@ $url_limpia = str_replace("?error", "", $url_limpia);
                                         $carrito->set("precio", $producto_data['data']['precio_descuento']);
                                     }
 
-                                    if (is_array($_SESSION["usuarios"])) {
-                                        if ($_SESSION["usuarios"]["descuento"] == 1) {
-                                            if ($producto_data['data']['precio'] != $producto_data['data']['precio_mayorista'] && $producto_data['data']['precio_mayorista'] != 0) {
-                                                $carrito->set("precio", $producto_data['data']['precio_mayorista']);
-                                            } else {
-                                                $carrito->set("precio", $producto_data['data']['precio']);
-                                            }
-                                        } else {
-                                            $carrito->set("precio", $producto_data['data']['precio']);
-                                        }
-                                    }
+                                    //if (is_array($_SESSION["usuarios"])) {
+                                    //    if ($_SESSION["usuarios"]["descuento"] == 1) {
+                                    //        if ($producto_data['data']['precio'] != $producto_data['data']['precio_mayorista'] && $producto_data['data']['precio_mayorista'] != 0) {
+                                    //            $carrito->set("precio", $producto_data['data']['precio_mayorista']);
+                                    //        } else {
+                                    //            $carrito->set("precio", $producto_data['data']['precio']);
+                                    //        }
+                                    //    } else {
+                                    //        $carrito->set("precio", $producto_data['data']['precio']);
+                                    //    }
+                                    //}
 
 
                                     if ($carrito->add()) {
@@ -289,7 +289,7 @@ if (!empty($productos_relacionados_data)) {
                         <!-- Product Image End -->
                         <!-- Product Content Start -->
                         <div class="pro-content">
-                            <div class="pro-info">
+                            <div class="pro-info centro">
                                 <h4>
                                     <a href="<?= URL . '/producto/' . $funciones->normalizar_link($prod['data']["titulo"]) . '/' . $prod['data']['cod'] ?>">
                                         <?= ucfirst(substr(strip_tags($prod['data']['titulo']), 0, 40)); ?>
@@ -299,12 +299,12 @@ if (!empty($productos_relacionados_data)) {
                                     <?php
                                     if ($prod['data']['precio_descuento'] > 0) {
                                         ?>
-                                        <span class="price">$ <?= $prod['data']['precio_descuento'] ?></span>
-                                        <del class="prev-price">$ <?= $prod['data']['precio'] ?></del>
+                                        <span class="price d-inline-block">$ <?= $prod['data']['precio_descuento'] ?></span>
+                                        <del class="prev-price d-inline-block">$ <?= $prod['data']['precio'] ?></del>
                                         <?php
                                     } else {
                                         ?>
-                                        <span class="price">$ <?= $prod['data']['precio'] ?></span>
+                                        <span class="price d-inline-block">$ <?= $prod['data']['precio'] ?></span>
                                         <?php
                                     }
                                     ?>

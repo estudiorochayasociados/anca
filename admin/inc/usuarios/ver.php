@@ -33,7 +33,7 @@ $usuarios = new Clases\Usuarios();
                         echo '<a class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Modificar" href="' . URL . '/index.php?op=usuarios&accion=modificar&cod=' . $data[$i]["cod"] . '">
                         <i class="fa fa-cog"></i></a>';
 
-                        echo '<a class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Eliminar" href="' . URL . '/index.php?op=index.php?op=usuarios&accion=ver&borrar=' . $data[$i]["cod"] . '">
+                        echo '<a class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Eliminar" href="' . URL . '/index.php?op=usuarios&accion=ver&borrar=' . $data[$i]["cod"] . '">
                         <i class="fa fa-trash"></i></a>';
                         echo "</td>";
                         echo "</tr>";
@@ -47,6 +47,7 @@ $usuarios = new Clases\Usuarios();
 <?php
 if (isset($_GET["borrar"])) {
     $cod = $funciones->antihack_mysqli(isset($_GET["borrar"]) ? $_GET["borrar"] : '');
+    $usuarios->set("cod",$cod);
     $usuarios->delete();
     $funciones->headerMove(URL . "/index.php?op=usuarios");
 }

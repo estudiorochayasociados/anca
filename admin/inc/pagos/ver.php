@@ -32,7 +32,7 @@ $data = $pagos->list("");
                         echo '<a class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Modificar" href="' . URL . '/index.php?op=pagos&accion=modificar&cod=' . $data[$i]["cod"] . '">
                         <i class="fa fa-cog"></i></a>';
 
-                        echo '<a class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Eliminar" href="' . URL . '/index.php?op=pagos&accion=modificar&borrar=' . $data[$i]["cod"] . '">
+                        echo '<a class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Eliminar" href="' . URL . '/index.php?op=pagos&accion=ver&borrar=' . $data[$i]["cod"] . '">
                         <i class="fa fa-trash"></i></a>';
                         echo "</td>";
                         echo "</tr>";

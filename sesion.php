@@ -28,7 +28,7 @@ if (empty($usuarioSesion)) {
     <!-- Container End -->
 </div>
 <!-- Breadcrumb End -->
-<section class="categories_product_main p_20 mt-10">
+<section class="categories_product_main p_20 mt-10 mb-10">
     <div class="container">
         <div class="categories_main_inner">
             <div class="row row_disable">

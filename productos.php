@@ -251,12 +251,12 @@ $template->themeInit();
                                             <?php
                                             if ($prod['data']['precio_descuento'] > 0) {
                                                 ?>
-                                                <span class="price">$ <?= $prod['data']['precio_descuento'] ?></span>
-                                                <del class="prev-price">$ <?= $prod['data']['precio'] ?></del>
+                                                <span class="price d-inline-block">$ <?= $prod['data']['precio_descuento'] ?></span>
+                                                <del class="prev-price d-inline-block">$ <?= $prod['data']['precio'] ?></del>
                                                 <?php
                                             } else {
                                                 ?>
-                                                <span class="price">$ <?= $prod['data']['precio'] ?></span>
+                                                <span class="price d-inline-block">$ <?= $prod['data']['precio'] ?></span>
                                                 <?php
                                             }
                                             ?>

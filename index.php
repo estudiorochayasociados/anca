@@ -9,6 +9,11 @@ $categoria = new Clases\Categorias();
 $producto = new Clases\Productos();
 $novedad = new Clases\Novedades();
 $slider = new Clases\Sliders();
+$template->set("title", TITULO . " | Inicio");
+$template->set("description", "Página principal de ".TITULO);
+$template->set("keywords", "");
+$template->set("favicon", FAVICON);
+$template->themeInit();
 ////Datos
 ///Productos
 $productos_datalast = $producto->listWithOps('', '', 10);
@@ -42,12 +47,6 @@ foreach ($categorias_sliders as $catS) {
     }
 }
 ///
-//
-$template->set("title", TITULO . " | Inicio");
-$template->set("description", "Página principal de".TITULO);
-$template->set("keywords", "");
-$template->set("favicon", FAVICON);
-$template->themeInit();
 //Slider Principal
 if (!empty($sliders_data)) {
     ?>
@@ -63,8 +62,8 @@ if (!empty($sliders_data)) {
                         echo 'active';
                         $activo++;
                     } ?>">
-                        <div style="height:400px;width:100%;background:url(<?= URL . '/' . $sli['imagenes']['0']['ruta']; ?>) no-repeat center center/cover;">
-
+                        <div>
+                            <img src="<?=URL.'/'.$sli['imagenes']['0']['ruta'];?>" alt="<?=$sli['data']['titulo'];?>">
                         </div>
                     </div>
                     <?php
@@ -184,12 +183,12 @@ if (!empty($productos_datalast)) {
                                             <?php
                                             if ($prod['data']['precio_descuento'] > 0) {
                                                 ?>
-                                                <span class="price">$ <?= $prod['data']['precio_descuento'] ?></span>
-                                                <del class="prev-price">$ <?= $prod['data']['precio'] ?></del>
+                                                <span class="price d-inline-block">$ <?= $prod['data']['precio_descuento'] ?></span>
+                                                <del class="prev-price d-inline-block">$ <?= $prod['data']['precio'] ?></del>
                                                 <?php
                                             } else {
                                                 ?>
-                                                <span class="price">$ <?= $prod['data']['precio'] ?></span>
+                                                <span class="price d-inline-block">$ <?= $prod['data']['precio'] ?></span>
                                                 <?php
                                             }
                                             ?>

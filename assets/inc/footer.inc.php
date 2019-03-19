@@ -7,15 +7,15 @@
                 <!-- Single Footer Start -->
                 <div class="col-lg-2 col-md-4 col-sm-6">
                     <div class="single-footer mb-sm-40">
-                        <h3 class="footer-title">Information</h3>
+                        <h3 class="footer-title">Contenido</h3>
                         <div class="footer-content">
                             <ul class="footer-list">
-                                <li><a href="about.html">About Us</a></li>
-                                <li><a href="#">Delivery Information</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="contact.html">Terms & Conditions</a></li>
-                                <li><a href="login.html">FAQs</a></li>
-                                <li><a href="login.html">Return Policy</a></li>
+                                <li><a href="#">Contenido</a></li>
+                                <li><a href="#">Contenido</a></li>
+                                <li><a href="#">Contenido</a></li>
+                                <li><a href="#">Contenido</a></li>
+                                <li><a href="#">Contenido</a></li>
+                                <li><a href="#">Contenido</a></li>
                             </ul>
                         </div>
                     </div>
@@ -24,15 +24,15 @@
                 <!-- Single Footer Start -->
                 <div class="col-lg-2 col-md-4 col-sm-6">
                     <div class="single-footer mb-sm-40">
-                        <h3 class="footer-title">Customer Service</h3>
+                        <h3 class="footer-title">Contenido</h3>
                         <div class="footer-content">
                             <ul class="footer-list">
-                                <li><a href="contact.html">Contact Us</a></li>
-                                <li><a href="#">Returns</a></li>
-                                <li><a href="#">Order History</a></li>
-                                <li><a href="wishlist.html">Wish List</a></li>
-                                <li><a href="#">Site Map</a></li>
-                                <li><a href="#">Gift Certificates</a></li>
+                                <li><a href="#">Contenido</a></li>
+                                <li><a href="#">Contenido</a></li>
+                                <li><a href="#">Contenido</a></li>
+                                <li><a href="#">Contenido</a></li>
+                                <li><a href="#">Contenido</a></li>
+                                <li><a href="#">Contenido</a></li>
                             </ul>
                         </div>
                     </div>
@@ -41,15 +41,15 @@
                 <!-- Single Footer Start -->
                 <div class="col-lg-2 col-md-4 col-sm-6">
                     <div class="single-footer mb-sm-40">
-                        <h3 class="footer-title">Extras</h3>
+                        <h3 class="footer-title">Contenido</h3>
                         <div class="footer-content">
                             <ul class="footer-list">
-                                <li><a href="#">Newsletter</a></li>
-                                <li><a href="#">Brands</a></li>
-                                <li><a href="#">Gift Certificates</a></li>
-                                <li><a href="#">Affiliate</a></li>
-                                <li><a href="#">Specials</a></li>
-                                <li><a href="#">Site Map</a></li>
+                                <li><a href="#">Contenido</a></li>
+                                <li><a href="#">Contenido</a></li>
+                                <li><a href="#">Contenido</a></li>
+                                <li><a href="#">Contenido</a></li>
+                                <li><a href="#">Contenido</a></li>
+                                <li><a href="#">Contenido</a></li>
                             </ul>
                         </div>
                     </div>
@@ -58,15 +58,15 @@
                 <!-- Single Footer Start -->
                 <div class="col-lg-2 col-md-4 col-sm-6">
                     <div class="single-footer mb-sm-40">
-                        <h3 class="footer-title">My Account</h3>
+                        <h3 class="footer-title">Contenido</h3>
                         <div class="footer-content">
                             <ul class="footer-list">
-                                <li><a href="contact.html">Contact Us</a></li>
-                                <li><a href="#">Returns</a></li>
-                                <li><a href="#">My Account</a></li>
-                                <li><a href="#">Order History</a></li>
-                                <li><a href="wishlist.html">Wish List</a></li>
-                                <li><a href="#">Newsletter</a></li>
+                                <li><a href="#">Contenido</a></li>
+                                <li><a href="#">Contenido</a></li>
+                                <li><a href="#">Contenido</a></li>
+                                <li><a href="#">Contenido</a></li>
+                                <li><a href="#">Contenido</a></li>
+                                <li><a href="#">Contenido</a></li>
                             </ul>
                         </div>
                     </div>

@@ -83,6 +83,7 @@ class TemplateSite
     public function themeEnd()
     {
         include 'assets/inc/footer.inc.php';
+        echo '</div>';
         echo '</body>';
         echo '</html>';
     }

@@ -28,7 +28,7 @@ if (isset($_POST["agregar"])) {
     $productos->set("titulo", $funciones->antihack_mysqli(isset($_POST["titulo"]) ? $_POST["titulo"] : ''));
     $productos->set("cod_producto", $funciones->antihack_mysqli(isset($_POST["cod_producto"]) ? $_POST["cod_producto"] : ''));
     $productos->set("precio", $funciones->antihack_mysqli(isset($_POST["precio"]) ? $_POST["precio"] : ''));
-    $productos->set("precio_mayorista", $funciones->antihack_mysqli(isset($_POST["precio_mayorista"]) ? $_POST["precio_mayorista"] : ''));
+    //$productos->set("precio_mayorista", $funciones->antihack_mysqli(isset($_POST["precio_mayorista"]) ? $_POST["precio_mayorista"] : ''));
     $productos->set("peso", $funciones->antihack_mysqli(isset($_POST["peso"]) ? $_POST["peso"] : 0));
     $productos->set("precio_descuento", $funciones->antihack_mysqli(isset($_POST["precio_descuento"]) ? $_POST["precio_descuento"] : ''));
     $productos->set("stock", $funciones->antihack_mysqli(isset($_POST["stock"]) ? $_POST["stock"] : ''));
@@ -108,9 +108,10 @@ if (isset($_POST["agregar"])) {
         <label class="col-md-3">Precio:<br/>
             <input type="text" name="precio" value="<?= $producto["precio"] ?>">
         </label>
+        <!--
         <label class="col-md-3">Precio mayorista:<br/>
             <input type="text" name="precio_mayorista" value="<?= $producto["precio_mayorista"] ?>">
-        </label>
+        </label>-->
         <label class="col-md-3">Peso:<br/>
             <input type="text" name="peso" value="<?= $producto["peso"] ?>">
         </label>

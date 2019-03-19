@@ -27,7 +27,7 @@ $template->themeInit();
     </div>
     <!-- Breadcrumb End -->
     <!-- LogIn Page Start -->
-    <div class="log-in ptb-100 ptb-sm-60">
+    <div class="log-in  mt-15 mb-10">
         <div class="container">
             <div class="row">
                 <!-- New Customer Start -->
