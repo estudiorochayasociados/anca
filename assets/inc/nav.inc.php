@@ -1,7 +1,6 @@
 <?php
 $usuario = new Clases\Usuarios();
 $carrito = new Clases\Carrito();
-$producto_nav = new Clases\Productos();
 $banner = new Clases\Banner();
 $categoria = new Clases\Categorias();
 $countCarrito = count($carrito->return());
@@ -90,7 +89,7 @@ if (!empty($banner_data_botonera) && CANONICAL == URL . '/index') {
             <div class="row align-items-center no-gutters">
                 <div class="col-lg-3 col-md-12">
                     <div class="logo mb-all-30">
-                        <a href="<?= URL ?>/index"><img src="<?= URL ?>/assets/img/logo/logo.png" alt="logo-image"></a>
+                        <a href="<?= URL ?>/index"><img src="<?= LOGO ?>" alt="logo-image"></a>
                     </div>
                 </div>
                 <!-- Categorie Search Box Start Here -->
@@ -200,8 +199,9 @@ if (!empty($banner_data_botonera) && CANONICAL == URL . '/index') {
                             <li><a href="<?= URL ?>/index">Inicio</a></li>
                             <li><a href="<?= URL ?>/productos">Productos</a></li>
                             <li><a href="<?= URL ?>/blogs">Blog</a></li>
-                            <li><a href="<?= URL ?>/contacto">Contacto</a></li>
                             <li><a href="<?= URL ?>/c/empresa">Sobre nosotros</a></li>
+                            <li><a href="<?= URL ?>/contacto">Contacto</a></li>
+                            <li><a href="<?= URL ?>/feed">Redes sociales</a></li>
                         </ul>
                     </nav>
                     <div class="mobile-menu d-block d-lg-none">
@@ -210,8 +210,9 @@ if (!empty($banner_data_botonera) && CANONICAL == URL . '/index') {
                                 <li><a href="<?= URL ?>/index">Inicio</a></li>
                                 <li><a href="<?= URL ?>/productos">Productos</a></li>
                                 <li><a href="<?= URL ?>/blogs">Blog</a></li>
-                                <li><a href="<?= URL ?>/contacto">Contacto</a></li>
                                 <li><a href="<?= URL ?>/c/empresa">Sobre nosotros</a></li>
+                                <li><a href="<?= URL ?>/contacto">Contacto</a></li>
+                                <li><a href="<?= URL ?>/feed">Redes sociales</a></li>
                                 <li><a href="<?= URL ?>/carrito">Carrito</a></li>
                                 <?php
                                 if (!empty($_SESSION['usuarios'])) {

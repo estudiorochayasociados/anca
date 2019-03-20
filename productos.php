@@ -105,8 +105,8 @@ if (!empty($productos_data)) {
     $numeroPaginas = $producto->paginador($filter, $cantidad);
 }
 $template->set("title", TITULO . " | Productos");
-$template->set("description", "Todos los productos de Anca");
-$template->set("keywords", "Todos los productos de Anca");
+$template->set("description", "Todos los productos de ".TITULO);
+$template->set("keywords", "Todos los productos de ".TITULO);
 $template->set("favicon", FAVICON);
 $template->set("body", "home3");
 $template->themeInit();

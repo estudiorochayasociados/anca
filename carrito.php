@@ -118,17 +118,27 @@ if (count($carro) == 0) {
 
                                 $precio += ($carroItem["precio"] * $carroItem["cantidad"]);
                                 $opciones = @implode(" - ", $carroItem["opciones"]);
-                                if ($carroItem["id"] == "Envio-Seleccion" || $carroItem["id"] == "Metodo-Pago") {
-                                    $clase = "text-bold";
-                                    $none = "hidden";
-                                } else {
-                                    $clase;
-                                    $none = "";
-                                }
+                                $img_;
                                 $productos->set("id", $carroItem['id']);
                                 $pro = $productos->view();
                                 $imagenes->set("cod", $pro['cod']);
                                 $img = $imagenes->view();
+                                if ($carroItem["id"] == "Envio-Seleccion" || $carroItem["id"] == "Metodo-Pago") {
+                                    $clase = "text-bold";
+                                    $none = "hidden";
+                                    switch ($carroItem['id']) {
+                                        case "Envio-Seleccion":
+                                            $img_=URL.'/assets/archivos/delivery-truck.png';
+                                            break;
+                                        case "Metodo-Pago":
+                                            $img_=URL.'/assets/archivos/notes.png';
+                                            break;
+                                    }
+                                } else {
+                                    $img_=URL . '/' . $img['ruta'];
+                                    $clase;
+                                    $none = "";
+                                }
                                 ?>
                                 <tr>
                                     <td class="product-remove">
@@ -137,7 +147,7 @@ if (count($carro) == 0) {
                                         </a>
                                     </td>
                                     <td class="product-thumbnail hidden-xs"
-                                        style="width:70px;height:100px;background:url(<?= URL . '/' . $img['ruta']; ?>) no-repeat center center/contain">
+                                        style="width:70px;height:100px;background:url(<?= $img_; ?>) no-repeat center center/70%">
                                     </td>
                                     <td class="product-name">
                                         <span class="amount hidden-xs"><?= mb_strtoupper($carroItem["titulo"]); ?></span>
@@ -173,7 +183,9 @@ if (count($carro) == 0) {
                     <!-- Table Content Start -->
                     <div class="row mb-10">
                         <!-- Cart Button Start -->
-                        <div class="col-md-8 col-sm-12 <?php if ($carroEnvio!=''){echo "fondo"; } ?>">
+                        <div class="col-md-8 col-sm-12 <?php if ($carroEnvio != '') {
+                            echo "fondo";
+                        } ?>">
                             <form class="" method="post">
                                 <!---->
                                 <?php
@@ -279,7 +291,7 @@ if (count($carro) == 0) {
                                         <tr class="order-total">
                                             <th>Total</th>
                                             <td>
-                                                <strong><span class="amount"><?= number_format($carrito->precio_total(), "2", ",", "."); ?></span></strong>
+                                                <strong><span class="amount">$ <?= number_format($carrito->precio_total(), "2", ",", "."); ?></span></strong>
                                             </td>
                                         </tr>
                                         </tbody>

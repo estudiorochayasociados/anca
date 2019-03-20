@@ -64,6 +64,18 @@ $fecha = gmdate("Y-m-j H:i:s", time() + 3600 * ($timezone + date("I")));
 
     switch ($pago["tipo"]) {
         case 0:
+            ?>
+            <section class="error_area pt-150 pb-150 mt-150">
+                <div class="container">
+                    <div class="error_inner centro">
+                        <img src="<?=LOGO?>" width="200">
+                        <h5>¡Procesando tu pedido!</h5>
+                        <h5 class="fs16">No cierres ésta pestaña</h5>
+                        <i class="mt-10 fa fa-2x fa-spinner  fa-spin"></i>
+                    </div>
+                </div>
+            </section>
+            <?php
             $pedidos->set("cod", $cod_pedido);
             $pedidos->set("estado", $pago["defecto"]);
             $pedidos->cambiar_estado();

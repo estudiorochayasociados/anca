@@ -4,14 +4,14 @@ class autoload
 {
     public static function runSitio()
     {
-        //require_once "Config/Minify.php";
+        require_once "Config/Minify.php";
         session_start();
         $_SESSION["cod_pedido"] = isset($_SESSION["cod_pedido"]) ? $_SESSION["cod_pedido"] : substr(md5(uniqid(rand())), 0, 10);
         define('SALT',hash("sha256","salt@estudiorochayasoc.com.ar"));
         define('URL', "http://".$_SERVER['HTTP_HOST']."/Anca");
         define('CANONICAL', "http://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"]);
         define('GOOGLE_TAG', "");
-        define('TITULO', "Anca");
+        define('TITULO', "FUSSION");
         define('TELEFONO', "03564 422291");
         define('CIUDAD', "San Francisco");
         define('PROVINCIA', "Cordoba");
@@ -20,7 +20,7 @@ class autoload
         define('PASS_EMAIL', "weAr2010");
         define('SMTP_EMAIL', "cs1008.webhostbox.net");
         define('DIRECCION', "Av. 9 de Septiembre 3203");
-        define('LOGO', URL . "/assets/img/logo.jpg");
+        define('LOGO', URL . "/assets/img/logo/logo.png");
         define('FAVICON', URL . "/assets/img/favicon.ico");
         define('APP_ID_FB', "");
         spl_autoload_register(
