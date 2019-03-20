@@ -34,6 +34,21 @@ if (!empty($banner_data_botonera) && CANONICAL == URL . '/index') {
         <!-- Banner Popup End -->
         <?php
     }
+}elseif(!empty($banner_data_botonera) && CANONICAL == URL.'/' ){
+    foreach ($banner_data_botonera as $banB) {
+        ?>
+        <!-- Banner Popup Start -->
+        <div class="popup_banner" id="banner">
+            <span class="popup_off_banner" onclick="$(this).parent().hide();">×</span>
+            <a href="<?= $banB['data']['link'] ?>">
+                <div class="banner_popup_area">
+                    <img src="<?= URL . '/' . $banB['imagenes'][0]['ruta']; ?>" alt="<?= $banB['data']['nombre']; ?>">
+                </div>
+            </a>
+        </div>
+        <!-- Banner Popup End -->
+        <?php
+    }
 }
 ?>
 <!-- Main Header Area Start Here -->
