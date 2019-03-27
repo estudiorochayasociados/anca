@@ -34,7 +34,7 @@ if (!empty($banner_data_botonera) && CANONICAL == URL . '/index') {
         <!-- Banner Popup End -->
         <?php
     }
-}elseif(!empty($banner_data_botonera) && CANONICAL == URL.'/' ){
+} elseif (!empty($banner_data_botonera) && CANONICAL == URL . '/') {
     foreach ($banner_data_botonera as $banB) {
         ?>
         <!-- Banner Popup Start -->
@@ -104,7 +104,9 @@ if (!empty($banner_data_botonera) && CANONICAL == URL . '/index') {
             <div class="row align-items-center no-gutters">
                 <div class="col-lg-3 col-md-12">
                     <div class="logo mb-all-30">
-                        <a href="<?= URL ?>/index"><img src="<?= LOGO ?>" alt="logo-image"></a>
+                        <a href="<?= URL ?>/index">
+                            <img height="91" src="<?= LOGO ?>" alt="logo-image">
+                        </a>
                     </div>
                 </div>
                 <!-- Categorie Search Box Start Here -->
@@ -210,36 +212,72 @@ if (!empty($banner_data_botonera) && CANONICAL == URL . '/index') {
             <div class="row align-items-center">
                 <div class="col-xl-9 col-lg-8 col-md-12 ">
                     <nav class="d-none d-lg-block">
-                        <ul class="header-bottom-list d-flex">
-                            <li><a href="<?= URL ?>/index">Inicio</a></li>
-                            <li><a href="<?= URL ?>/productos">Productos</a></li>
-                            <li><a href="<?= URL ?>/blogs">Blog</a></li>
-                            <li><a href="<?= URL ?>/c/empresa">Sobre nosotros</a></li>
-                            <li><a href="<?= URL ?>/contacto">Contacto</a></li>
-                            <li><a href="<?= URL ?>/feed">Redes sociales</a></li>
+                        <ul class="header-bottom-list d-flex nav-upper">
+                            <li>
+                                <a class="texto-nav" href="<?= URL ?>/index">Inicio</a>
+                            </li>
+                            <li>
+                                <a class="texto-nav" href="<?= URL ?>/productos">Productos</a>
+                            </li>
+                            <li>
+                                <a class="texto-nav" href="<?= URL ?>/blogs">Blog</a>
+                            </li>
+                            <li>
+                                <a class="texto-nav" href="<?= URL ?>/c/empresa">Sobre nosotros</a>
+                            </li>
+                            <li>
+                                <a class="texto-nav" href="<?= URL ?>/contacto">Contacto</a>
+                            </li>
+                            <li>
+                                <a class="texto-nav" href="<?= URL ?>/feed">Redes sociales</a>
+                            </li>
                         </ul>
                     </nav>
                     <div class="mobile-menu d-block d-lg-none">
                         <nav>
                             <ul>
-                                <li><a href="<?= URL ?>/index">Inicio</a></li>
-                                <li><a href="<?= URL ?>/productos">Productos</a></li>
-                                <li><a href="<?= URL ?>/blogs">Blog</a></li>
-                                <li><a href="<?= URL ?>/c/empresa">Sobre nosotros</a></li>
-                                <li><a href="<?= URL ?>/contacto">Contacto</a></li>
-                                <li><a href="<?= URL ?>/feed">Redes sociales</a></li>
-                                <li><a href="<?= URL ?>/carrito">Carrito</a></li>
+                                <li>
+                                    <a href="<?= URL ?>/index">Inicio</a>
+                                </li>
+                                <li>
+                                    <a href="<?= URL ?>/productos">Productos</a>
+                                </li>
+                                <li>
+                                    <a href="<?= URL ?>/blogs">Blog</a>
+                                </li>
+                                <li>
+                                    <a href="<?= URL ?>/c/empresa">Sobre nosotros</a>
+                                </li>
+                                <li>
+                                    <a href="<?= URL ?>/contacto">Contacto</a>
+                                </li>
+                                <li>
+                                    <a href="<?= URL ?>/feed">Redes sociales</a>
+                                </li>
+                                <li>
+                                    <a href="<?= URL ?>/carrito">Carrito</a>
+                                </li>
                                 <?php
                                 if (!empty($_SESSION['usuarios'])) {
                                     ?>
-                                    <li><a href="<?= URL ?>/sesion/cuenta">Perfil</a></li>
-                                    <li><a href="<?= URL ?>/sesion/pedidos">Pedidos</a></li>
-                                    <li><a href="<?= URL ?>?logout">Salir</a></li>
+                                    <li>
+                                        <a href="<?= URL ?>/sesion/cuenta">Perfil</a>
+                                    </li>
+                                    <li>
+                                        <a href="<?= URL ?>/sesion/pedidos">Pedidos</a>
+                                    </li>
+                                    <li>
+                                        <a href="<?= URL ?>?logout">Salir</a>
+                                    </li>
                                     <?php
                                 } else {
                                     ?>
-                                    <li><a href="<?= URL ?>/ingreso">Iniciar sesión</a></li>
-                                    <li><a href="<?= URL ?>/registro">Registrar Usuario</a></li>
+                                    <li>
+                                        <a href="<?= URL ?>/ingreso">Iniciar sesión</a>
+                                    </li>
+                                    <li>
+                                        <a href="<?= URL ?>/registro">Registrar Usuario</a>
+                                    </li>
                                     <?php
                                 }
                                 ?>

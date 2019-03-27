@@ -104,8 +104,8 @@ if (!empty($slidersm_data)) {
                         echo 'active';
                         $activo++;
                     } ?>">
-                        <div style="height:300px;width:100%;background:url(<?= URL . '/' . $sli['imagenes']['0']['ruta']; ?>) no-repeat center center/cover;">
-
+                        <div>
+                            <img src="<?=URL.'/'.$sli['imagenes']['0']['ruta'];?>" alt="<?=$sli['data']['titulo'];?>">
                         </div>
                     </div>
                     <?php

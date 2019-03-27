@@ -95,3 +95,9 @@
 .centro{
     text-align: center !important;
 }
+.nav-upper{
+    text-transform: uppercase !important;
+}
+.texto-nav{
+    font-size: 14px !important;
+}

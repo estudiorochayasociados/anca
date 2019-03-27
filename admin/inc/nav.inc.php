@@ -36,12 +36,13 @@ $pages = ["ecommerce", "contenidos", "novedades", "multimedia", "usuarios", "ban
                         }
                     }
                 }
-                echo '<span class="nav-link"><img src="' . URL . '/img/meli.png" width="30" /> Vinculación a Mercadolibre </span>';
+                echo '<span class="nav-link"><img src="' . URL . '/img/meli.png" width="30" /> Vinculación a Mercadolibre <i class="fa fa-check-square green"></i></span>';
             } else {
-                echo '<a class="nav-link" target="_blank" href="' . $meli->getAuthUrl($redirectURI, Meli::$AUTH_URL[$siteId]) . '"><img src="' . URL . '/img/meli.png" width="30" /> ¿Vincularme a Mercadolibre?</a>';
+                echo '<a class="nav-link" target="_blank" href="' . $meli->getAuthUrl($redirectURI, Meli::$AUTH_URL[$siteId]) . '"><img src="' . URL . '/img/meli.png" width="30" /> ¿Vincularme a Mercadolibre <i class="fa fa-square green">?</i></a>';
             }
             ?>
         </div>
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon">
             </span>
